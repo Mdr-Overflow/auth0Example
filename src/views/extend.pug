@@ -8,11 +8,11 @@ block content
       br
       strong This route should be protected.
 
-  form.login(action='/create', method='post')
+  form.login()
     p User Registration
     div
-      label(for='username') Username
-      input(type='text', id='username', name='username')
+      label(for='email') Email
+      input(type='text', id='email', name='email')
     div
       label(for='password') Password
       input(type='password', id='password', name='password')
@@ -30,4 +30,8 @@ block content
       input(type='text', id='zip', name='zip')
     div
       input(type='hidden', name='_csrf', value=csrfToken)
-  
+    div
+     button(class=buttonClass type="submit" onclick="create()") Create
+
+     script
+        include ../extend.js
