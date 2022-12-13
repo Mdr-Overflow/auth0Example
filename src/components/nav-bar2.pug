@@ -2,8 +2,9 @@ include ./main-navbar
 include ./auth-navbar
 
 mixin nav-bar2(activeRoute)
+
     a(href='/')
         img.logo(src='logo.png' alt='BidDriven logo')
-            ul.main-nav-list
-                    +main-navbar(activeRoute)
-                    +auth-navbar(isAuthenticated)
+             ul.main-nav-list
+                       +main-navbar(activeRoute)
+                       +auth-navbar(isAuthenticated)

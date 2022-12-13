@@ -27,7 +27,9 @@ body {
   position: relative;
 }
 .logo {
-  height: 3.2rem;
+    height: 6.2rem;
+    width: 13.3rem;
+  
 }
 .main-nav-list {
   list-style: none;

@@ -1,11 +1,29 @@
 extends index2
 
-include ../components/super-footer
-include ../components/main-navbar
+include ./super-footer
+include ./main-navbar
+include ./login-button
+include ./logout-button
+
+mixin authentication-button(isAuthenticated)
+  if isAuthenticated
+    +logout-button
+  else
+    +login-button
+
 
 block layout-content
-  div(id="app" class="d-flex flex-column h-100")
-    +main-navbar(activeRoute)
-    div(class="container flex-grow-1")
+  
+    header(class = "header") 
+        a(href='/')
+            img.logo(src='logo.png' alt='BidDriven logo')
+            ul.main-nav-list
+                        +main-navbar(activeRoute)
+                        ul.main-nav-list
+                            li
+                            +authentication-button(isAuthenticated)
+                            li
+                            a.main-nav-link.nav-cta(href='/sign-up/ /') Sign Up
+    main 
       block content
-    +super-footer
+      +super-footer
