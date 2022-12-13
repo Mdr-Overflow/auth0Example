@@ -6,6 +6,11 @@ const express = require("express");
 const path = require("path");
 const { auth, requiresAuth } = require('express-openid-connect');
 
+const bcrypt = require('bcrypt');
+const mongo = require('mongodb');
+
+
+
 require("dotenv").config();
 
 /**
@@ -103,8 +108,20 @@ app.get('/logout/:page', (req, res) => {
 
 
 app.get('/extend', (req,res) =>{
-  res.render('extend',{ user: req.oidc.user});
+  res.render('extend',{ user: req.oidc.user, mongo: mongo , bcrypt: bcrypt});
   });                                     ///CHANGE THIS
+
+
+
+
+/**fetch
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
 
 

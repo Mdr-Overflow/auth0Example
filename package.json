@@ -16,9 +16,11 @@
     "prettier": "^2.1.2"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-openid-connect": "^2.11.0",
+    "mongodb": "^4.12.1",
     "pug": "^3.0.0"
   }
 }

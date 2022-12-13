@@ -2,15 +2,16 @@
 const MONGO_PASSWORD = 'DDcytac9rIpwJ0Xp'
 ///
 
-function create(callback) {
-    const bcrypt = require('bcrypt');
-    const MongoClient = require('mongodb@3.1.4').MongoClient;
-    const client = new MongoClient('mongodb+srv://Mandrei:'+MONGO_PASSWORD+'@cluster0.xuf1qrn.mongodb.net/?retryWrites=true&w=majority');
+
+function create() {
+    
+    const MongoClient = mongo.MongoClient;
+   // var client = new MongoClient('mongodb+srv://Mandrei:'+MONGO_PASSWORD+'@cluster0.xuf1qrn.mongodb.net/?retryWrites=true&w=majority');
   
 
-    client.connect(function (err) {
-        if (err) return callback(err);
-    
+   MongoClient.connect( 'mongodb+srv://Mandrei:'+MONGO_PASSWORD+'@cluster0.xuf1qrn.mongodb.net/?retryWrites=true&w=majority', function (err) {
+        if (err) return alert(err);
+
         const db = client.db('db-name');
         const users = db.collection('users');
     
@@ -24,7 +25,7 @@ function create(callback) {
         bcrypt.hash(newPassword, 10, function (err, hash) {
           if (err) {
             client.close();
-            return callback(err);
+            return alert(err);
           }
     
           users.update({ email: email.toLowerCase() }, { $set: { password: hash }, $set: {role: 'user'}, 
@@ -33,10 +34,11 @@ function create(callback) {
           $set: { city: city }, 
           $set: { zip: zip },
           $set: { ballance: 0 }
+
         }, function (err, result) {
             client.close();
-            if (err) return callback(err);
-            callback(null, result.result.n > 0);
+            if (err) return alert(err);
+            alert(result);
           });
         });
       });
