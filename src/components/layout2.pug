@@ -1,0 +1,11 @@
+extends index2
+
+include ../components/super-footer
+include ../components/main-navbar
+
+block layout-content
+  div(id="app" class="d-flex flex-column h-100")
+    +main-navbar(activeRoute)
+    div(class="container flex-grow-1")
+      block content
+    +super-footer

@@ -60,7 +60,7 @@ module.exports = {
       users.updateOne({email: emailActual}, updates, function (err, _result) {
             if (err) throw (err);
             console.log(_result)
-            client.close()
+           // client.close()
           });
   
   });

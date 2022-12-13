@@ -108,7 +108,23 @@ let dbo = require("../db/conn.js");
 // > Home
 
 app.get("/", (req, res) => {
-  res.render("home", { activeRoute: req.originalUrl });
+  res.render("home3", { activeRoute: req.originalUrl });
+});
+
+// > CarStore (buy)
+
+app.get("/buyCar", (req, res) => {
+  res.render("buyCar", { activeRoute: req.originalUrl });
+});
+
+// > faq
+app.get("/faq", (req, res) => {
+  res.render("faq", { activeRoute: req.originalUrl });
+});
+
+// > CarStore (sell)
+app.get("/sellCar", (req, res) => {
+  res.render("sellCar", { activeRoute: req.originalUrl });
 });
 
 // > Profile

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home-style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="home.html" class="">
+        <img class="logo" src="logo.png" alt="BidDriven logo"
+      /></a>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="home.html">About us</a></li>
+          <li><a class="main-nav-link" href="buy-a-car.html">Buy a Car</a></li>
+          <li><a class="main-nav-link" href="sell-car.html">Sell a Car</a></li>
+          <li><a class="main-nav-link" href="faq.html">Faq</a></li>
+          <li>
+            <a class="main-nav-link" href="login.html">Sing In</a>
+          </li>
+          <li>
+            <a class="main-nav-link nav-cta" href="create-account.html"
+              >Sing Up</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-hero" id="hero">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h1 class="heading-primary">We have every car you need</h1>
+            <p class="hero-description">
+              We Provide best solution. consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam
+            </p>
+            <a href="#how" class="btn btn--outtline">Learn more &darr;</a>
+          </div>
+          <div class="hero-img-box">
+            <img
+              src="bg-image.jpg"
+              alt="Woman enjoy eating food"
+              class="hero-img"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="section-cta" id="cta">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-text-box">
+              <form class="cta-form" action="#">
+                <div>
+                  <label for="select-where">Select Make</label>
+                  <select id="select-where" required>
+                    <option value="Porsche">Porsche</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Volvo">Volvo</option>
+                    <option value="Dacia">Dacia</option>
+                    <option value="Altele">Altele</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="select-where">Select model</label>
+                  <select id="select-where" disabled>
+                    <option value="">Please choose one option:</option>
+                    <option value="friends">Friends and family</option>
+                    <option value="youtube">Youtube ad</option>
+                    <option value="facebook">Facebook ad</option>
+                    <option value="podcast">Podcast</option>
+                    <option value="Others">Others</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="select-where">Select year</label>
+                  <select id="select-where" required>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="select-where">Select body style</label>
+                  <select id="select-where" required>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Minivan">Minivan</option>
+                    <option value="Convertible">Convertible</option>
+                    <option value="Van">Van</option>
+                    <option value="SUV">SUV</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="select-where">Select vehicle status</label>
+                  <select id="select-where" required>
+                    <option value="New">New/option></option>
+                    <option value="Second hand">Second hand</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="select-where">Type of auction</label>
+                  <select id="select-where" required>
+                    <option value="Dynamic">Dynamic</option>
+                    <option value="Buy now">Buy now</option>
+                    <option value="Blind">Blind</option>
+                    <option value="Target">Target</option>
+                  </select>
+                </div>
+                <button class="btn btn--form">Discover more</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-featured">
+        <div class="container">
+          <h2 class="heading-featured-in">OUR SERVICES</h2>
+          <h1 class="heading-featured">What We Offers</h1>
+          <p class="heading-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor
+          </p>
+        </div>
+        <div class="grid grid--3-cols">
+          <div class="feature">
+            <ion-icon class="feature-icon" name="today-outline"></ion-icon>
+            <p class="feature-title">Anytime</p>
+            <p class="feature-text">
+              A small river named Duden flows by their place and supplies it
+              with you
+            </p>
+          </div>
+
+          <div class="feature">
+            <ion-icon class="feature-icon" name="location-outline"></ion-icon>
+            <p class="feature-title">Lots of location</p>
+            <p class="feature-text">
+              A small river named Duden flows by their place and supplies it
+              with you
+            </p>
+          </div>
+          <div class="feature">
+            <ion-icon class="feature-icon" name="car-sport-outline"></ion-icon>
+            <p class="feature-title">Electric Cars</p>
+            <p class="feature-text">
+              A small river named Duden flows by their place and supplies it
+              with you
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-meals" id="meals">
+        <div class="container">
+          <h2 class="heading-featured-in">OUR CARS</h2>
+          <h1 class="heading-featured">Choose Your Car</h1>
+        </div>
+
+        <div class="container grid grid--3-cols margin-bottom-md">
+          <div class="meal">
+            <img src="car.jpg" alt="Japanese Gyozas" class="meal-img" />
+            <div class="meal-content">
+              <div class="meal-tag">
+                <span class="tag">Electric</span>
+              </div>
+              <p class="meal-title">Hyundai I30</p>
+              <ul class="meal-atttributes">
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="speedometer-outline"
+                  ></ion-icon>
+                  <span> <strong>190</strong> hp</span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="battery-full-outline"
+                  ></ion-icon>
+                  <span>Autonomy <strong>500km</strong></span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon class="meal-icon" name="star-outline"></ion-icon>
+                  <span> <strong>4.9</strong> rating (537)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="meal">
+            <img src="car.jpg" alt="Japanese Gyozas" class="meal-img" />
+            <div class="meal-content">
+              <div class="meal-tag">
+                <span class="tag">Electric</span>
+              </div>
+              <p class="meal-title">Hyundai I30</p>
+              <ul class="meal-atttributes">
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="speedometer-outline"
+                  ></ion-icon>
+                  <span> <strong>190</strong> hp</span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="battery-full-outline"
+                  ></ion-icon>
+                  <span>Autonomy <strong>500km</strong></span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon class="meal-icon" name="star-outline"></ion-icon>
+                  <span> <strong>4.9</strong> rating (537)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="meal">
+            <img src="car.jpg" alt="Japanese Gyozas" class="meal-img" />
+            <div class="meal-content">
+              <div class="meal-tag">
+                <span class="tag">Electric</span>
+              </div>
+              <p class="meal-title">Hyundai I30</p>
+              <ul class="meal-atttributes">
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="speedometer-outline"
+                  ></ion-icon>
+                  <span> <strong>190</strong> hp</span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="battery-full-outline"
+                  ></ion-icon>
+                  <span>Autonomy <strong>500km</strong></span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon class="meal-icon" name="star-outline"></ion-icon>
+                  <span> <strong>4.9</strong> rating (537)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="meal">
+            <img src="car.jpg" alt="Japanese Gyozas" class="meal-img" />
+            <div class="meal-content">
+              <div class="meal-tag">
+                <span class="tag">Electric</span>
+              </div>
+              <p class="meal-title">Hyundai I30</p>
+              <ul class="meal-atttributes">
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="speedometer-outline"
+                  ></ion-icon>
+                  <span> <strong>190</strong> hp</span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="battery-full-outline"
+                  ></ion-icon>
+                  <span>Autonomy <strong>500km</strong></span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon class="meal-icon" name="star-outline"></ion-icon>
+                  <span> <strong>4.9</strong> rating (537)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="meal">
+            <img src="car.jpg" alt="Japanese Gyozas" class="meal-img" />
+            <div class="meal-content">
+              <div class="meal-tag">
+                <span class="tag">Electric</span>
+              </div>
+              <p class="meal-title">Hyundai I30</p>
+              <ul class="meal-atttributes">
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="speedometer-outline"
+                  ></ion-icon>
+                  <span> <strong>190</strong> hp</span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="battery-full-outline"
+                  ></ion-icon>
+                  <span>Autonomy <strong>500km</strong></span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon class="meal-icon" name="star-outline"></ion-icon>
+                  <span> <strong>4.9</strong> rating (537)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="meal">
+            <img src="car.jpg" alt="Japanese Gyozas" class="meal-img" />
+            <div class="meal-content">
+              <div class="meal-tag">
+                <span class="tag">Electric</span>
+              </div>
+              <p class="meal-title">Hyundai I30</p>
+              <ul class="meal-atttributes">
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="speedometer-outline"
+                  ></ion-icon>
+                  <span> <strong>190</strong> hp</span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon
+                    class="meal-icon"
+                    name="battery-full-outline"
+                  ></ion-icon>
+                  <span>Autonomy <strong>500km</strong></span>
+                </li>
+                <li class="meal-atttribute">
+                  <ion-icon class="meal-icon" name="star-outline"></ion-icon>
+                  <span> <strong>4.9</strong> rating (537)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-about cont" id="hero">
+        <div id="content-text">
+          <div class="container">
+            <h2 class="heading-featured-in bigger">OUR SERVICES</h2>
+            <h1 class="heading-featured white">What We Offers</h1>
+          </div>
+          <div class="grid grid--4-cols">
+            <div class="feature content">
+              <ion-icon
+                class="feature-icon border"
+                name="today-outline"
+              ></ion-icon>
+              <p class="feature-title content">Anytime</p>
+              <p class="feature-text content">
+                A small river named Duden flows by their place and supplies it
+                with you
+              </p>
+            </div>
+
+            <div class="feature">
+              <ion-icon
+                class="feature-icon border"
+                name="location-outline"
+              ></ion-icon>
+              <p class="feature-title content">Lots of location</p>
+              <p class="feature-text content">
+                A small river named Duden flows by their place and supplies it
+                with you
+              </p>
+            </div>
+            <div class="feature">
+              <ion-icon
+                class="feature-icon border"
+                name="car-sport-outline"
+              ></ion-icon>
+              <p class="feature-title content">Electric Cars</p>
+              <p class="feature-text content">
+                A small river named Duden flows by their place and supplies it
+                with you
+              </p>
+            </div>
+            <div class="feature">
+              <ion-icon
+                class="feature-icon border"
+                name="happy-outline"
+              ></ion-icon>
+              <p class="feature-title content">Enjoy The Ride</p>
+              <p class="feature-text content">
+                A small river named Duden flows by their place and supplies it
+                with you
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-us" id="hero">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h1 class="heading-primary">Choose A Perfect Car</h1>
+            <p class="hero-description">
+              A small river named Duden flows by their place and supplies it
+              with the necessary regelialia. It is a paradisematic country, in
+              which roasted parts of sentences fly into your mouth. On her way
+              she met a copy. The copy warned the Little Blind Text, that where
+              it came from it would have been rewritten a thousand times and
+              everything that was left from its origin would be the word and and
+              the Little Blind Text should turn around and return to its own,
+              safe country. But nothing the copy said could convince her and so
+              it didn t take long until a few insidious Copy Writers ambushed
+              her, made her drunk with Longe and Parole and dragged her into
+              their agency, where they abused her for their.
+            </p>
+            <a href="#how" class="btn btn--outtline">Search Vehicle</a>
+          </div>
+          <div class="hero-img-box">
+            <img
+              src="bg-image.jpg"
+              alt="Woman enjoy eating food"
+              class="hero-img"
+            />
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container grid grid--footer">
+          <div class="logo-col">
+            <a href="#" class="footer-logo">
+              <img class="logo" src="logo.png" alt="Omnifood logo"
+            /></a>
+            <ul class="social-links">
+              <li>
+                <a href="#" class="footer-link"
+                  ><ion-icon
+                    class="social-icon"
+                    name="logo-instagram"
+                  ></ion-icon
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="footer-link"
+                  ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="footer-link"
+                  ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+                ></a>
+              </li>
+            </ul>
+            <p class="copyright">Copyright &copy; 2027 by David</p>
+          </div>
+          <div class="address-col">
+            <p class="footer-heading">Contact us</p>
+            <address class="contacts">
+              <p class="address">
+                623 Harrison St., 2nd Floor, San Francisco, CA 94107
+              </p>
+              <p>
+                <a class="footer-link" href="tel:415-201-6370">415-201-6370</a>
+                <br />
+                <a class="footer-link" href="mailto:support@car-shop.com"
+                  >support@car-shop.com</a
+                >
+              </p>
+            </address>
+          </div>
+          <nav class="nav-col">
+            <p class="footer-heading">Account</p>
+            <ul class="footer-nav">
+              <li>
+                <a class="footer-link" href="create-account.html"
+                  >Create account</a
+                >
+              </li>
+              <li><a class="footer-link" href="login.html">Sign in</a></li>
+              <li><a class="footer-link" href="#">iOS app</a></li>
+              <li><a class="footer-link" href="#">Android app</a></li>
+            </ul>
+          </nav>
+          <nav class="nav-col">
+            <p class="footer-heading">Company</p>
+            <ul class="footer-nav">
+              <li><a class="footer-link" href="#">About BidDriven</a></li>
+              <li><a class="footer-link" href="#">For Business</a></li>
+              <li><a class="footer-link" href="#">Cooking partners</a></li>
+              <li><a class="footer-link" href="#">Careers</a></li>
+            </ul>
+          </nav>
+          <nav class="nav-col">
+            <p class="footer-heading">Resources</p>
+            <ul class="footer-nav">
+              <li><a class="footer-link" href="#">Recipe directory</a></li>
+              <li><a class="footer-link" href="#">Help center</a></li>
+              <li><a class="footer-link" href="#">Privacy & terms</a></li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

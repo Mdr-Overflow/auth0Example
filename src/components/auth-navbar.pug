@@ -1,0 +1,10 @@
+include ./authentication-button
+
+mixin auth-navbar(isAuthenticated,isExtended)
+      
+      li
+        +authentication-button(isAuthenticated)
+      li
+        a.main-nav-link.nav-cta(href='create-account.html') Sign Up
+    
+ 

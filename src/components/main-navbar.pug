@@ -1,0 +1,28 @@
+mixin main-navbar(activeRoute)
+    ul.main-nav-list
+      li
+        a(
+        href="/"
+        class="nav-link",
+        class=`${activeRoute === "/" && "router-link-exact-active"}`
+        ) About Us
+      li
+        a(
+        href="/buyCar"
+        class="nav-link",
+        class=`${activeRoute === "/buyCar" && "router-link-exact-active"}`
+        ) Buy a Car
+      li
+        a(
+            href="/buyCar"
+            class="nav-link",
+            class=`${activeRoute === "/buyCar" && "router-link-exact-active"}`
+        ) Sell a Car
+      li
+       a(
+            href="/faq"
+            class="nav-link",
+            class=`${activeRoute === "/faq" && "router-link-exact-active"}`
+        ) Faq
+      
+      
