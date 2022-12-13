@@ -1,10 +1,14 @@
-///
+/*///
 const MONGO_PASSWORD = 'DDcytac9rIpwJ0Xp'
 ///
 
 
+
+
 function create() {
-    
+    const bcrypt = require('bcrypt');
+   // var MongoClient = require(['mongodb@3.1.4']).MongoClient;
+    const mongo = require('mongodb');
     const MongoClient = mongo.MongoClient;
    // var client = new MongoClient('mongodb+srv://Mandrei:'+MONGO_PASSWORD+'@cluster0.xuf1qrn.mongodb.net/?retryWrites=true&w=majority');
   
@@ -42,4 +46,4 @@ function create() {
           });
         });
       });
-    }
+    }*/

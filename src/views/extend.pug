@@ -1,5 +1,8 @@
 extends ../components/layout
 
+
+
+
 block content
   div
     h1 External API
@@ -8,14 +11,12 @@ block content
       br
       strong This route should be protected.
 
-  form.login()
+  form.login(action="/updateUser" method="POST")
     p User Registration
     div
       label(for='email') Email
       input(type='text', id='email', name='email')
-    div
-      label(for='password') Password
-      input(type='password', id='password', name='password')
+   
     div
       label(for='age') Age
       input(type='text', id='age', name='age')
@@ -29,7 +30,6 @@ block content
       label(for='zip') Zip-Code
       input(type='text', id='zip', name='zip')
     div
-      input(type='hidden', name='_csrf', value=csrfToken)
-    div
-     button(class=buttonClass type="submit" onclick="create()" id = "send") Create
-     
+    <button>Send my greetings</button>Create
+  
+

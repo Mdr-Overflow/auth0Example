@@ -5,10 +5,14 @@
 const express = require("express");
 const path = require("path");
 const { auth, requiresAuth } = require('express-openid-connect');
-
-const bcrypt = require('bcrypt');
-const mongo = require('mongodb');
-
+const { create } = require("domain");
+var bodyParser = require('body-parser')
+ 
+// create application/json parser
+var jsonParser = bodyParser.json()
+ 
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 require("dotenv").config();
@@ -49,10 +53,53 @@ app.use((req, res, next) => {
 });
 
 
+/* Plugin */
+
+///DB
+
+const MONGO_PASSWORD = 'DDcytac9rIpwJ0Xp'
+///
+
+//DB CONN
+
+const mongo = require('mongodb');
+const bcrypt = require('bcrypt');
+const { Console } = require("console");
+
+const { MongoClient } = require("mongodb");
+const { connectToServer } = require("../db/conn");
+const connectionString = process.env.ATLAS_URI;
+
+console.log(connectionString)
+
+const dbclient = new MongoClient(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+
+//
+
+
+//
 
 
 
+/*
+   dbclient.connect( 'mongodb+srv://Mandrei:'+MONGO_PASSWORD+'@cluster0.xuf1qrn.mongodb.net/?retryWrites=true&w=majority', function (err,client) {
+      if (err) return alert(err);
 
+      const db = client.db('db-name');
+      const users = db.collection('users');
+   })
+  
+*/
+
+let dbo = require("../db/conn.js");
+
+
+
+ 
 
 /**
  * Routes Definitions
@@ -107,21 +154,56 @@ app.get('/logout/:page', (req, res) => {
 });
 
 
-app.get('/extend', (req,res) =>{
-  res.render('extend',{ user: req.oidc.user, mongo: mongo , bcrypt: bcrypt});
-  });                                     ///CHANGE THIS
+app.get('/extend', requiresAuth(), (req,res) =>{
+ 
+
+ res.render('extend',{}  
+  
+  );
+  
+});                                     ///CHANGE THIS
 
 
+
+app.post('/updateUser', urlencodedParser, function (req, res) {
+
+  console.log(req.body)
+
+  let age = req.body.age
+  let country = req.body.country;
+  let city = req.body.city;
+  let zip = req.body.zip;
+  let emailActual = req.body.email;
+
+  console.log(age,country,city,zip,emailActual)
+
+  dbo.updateData(age,country,city,zip,emailActual)  
+  
+  
+
+
+
+
+    res.render('profile', {
+      user : req.oidc.user,
+      
+    });
+  });
 
 
 /**fetch
  * 
- * 
+ 
+
  * 
  * 
  * 
  * 
  */
+
+ 
+
+
 
 
 

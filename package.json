@@ -11,16 +11,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.12.2",
+    "browser-sync": "^2.11.2",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.2"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-openid-connect": "^2.11.0",
     "mongodb": "^4.12.1",
-    "pug": "^3.0.0"
+    "pug": "^3.0.2"
   }
 }
