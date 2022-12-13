@@ -1,0 +1,33 @@
+extends ../components/layout
+
+block content
+  div
+    h1 External API
+    p
+      | Extend the user details.
+      br
+      strong This route should be protected.
+
+  form.login(action='/create', method='post')
+    p User Registration
+    div
+      label(for='username') Username
+      input(type='text', id='username', name='username')
+    div
+      label(for='password') Password
+      input(type='password', id='password', name='password')
+    div
+      label(for='age') Age
+      input(type='text', id='age', name='age')
+    div
+      label(for='country') Country
+      input(type='text', id='country', name='country')
+    div
+      label(for='city') City
+      input(type='text', id='city', name='city')
+    div
+      label(for='zip') Zip-Code
+      input(type='text', id='zip', name='zip')
+    div
+      input(type='hidden', name='_csrf', value=csrfToken)
+  
