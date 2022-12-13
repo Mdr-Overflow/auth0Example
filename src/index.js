@@ -180,13 +180,17 @@ app.post('/updateUser', urlencodedParser, function (req, res) {
   dbo.updateData(age,country,city,zip,emailActual)  
   
   
-
+  let extra = {age: age,
+    country: country,
+    city: city,
+    zip: zip,
+    email : emailActual} 
 
 
 
     res.render('profile', {
       user : req.oidc.user,
-      
+      extra: extra
     });
   });
 

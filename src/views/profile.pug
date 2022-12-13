@@ -16,5 +16,6 @@ block content
       div(class="row")
         pre(class="col-12 text-light bg-dark p-4")
           | #{JSON.stringify(user, null, 2)}
-  if zip
-    h1 #{zip}
+      div(class="row")
+        pre(class="col-12 text-light bg-dark p-4")
+          | #{JSON.stringify(extra, null, 2)}
