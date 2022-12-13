@@ -114,17 +114,17 @@ app.get("/", (req, res) => {
 // > CarStore (buy)
 
 app.get("/buyCar", (req, res) => {
-  res.render("buyCar", { activeRoute: req.originalUrl });
+  res.render("buyCar2", { activeRoute: req.originalUrl });
 });
 
 // > faq
 app.get("/faq", (req, res) => {
-  res.render("faq", { activeRoute: req.originalUrl });
+  res.render("faq2", { activeRoute: req.originalUrl });
 });
 
 // > CarStore (sell)
 app.get("/sellCar", (req, res) => {
-  res.render("sellCar", { activeRoute: req.originalUrl });
+  res.render("sellCar2", { activeRoute: req.originalUrl });
 });
 
 // > Profile
