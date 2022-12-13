@@ -122,6 +122,12 @@ app.get("/faq", (req, res) => {
   res.render("faq2", { activeRoute: req.originalUrl });
 });
 
+// > Coming Soon
+
+app.get("/soon", (req, res) => {
+  res.render("comingSoon", { });
+});
+
 // > CarStore (sell)
 app.get("/sellCar", (req, res) => {
   res.render("sellCar2", { activeRoute: req.originalUrl });
