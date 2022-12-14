@@ -4,6 +4,8 @@ include ./super-footer
 include ./main-navbar
 include ./login-button
 include ./logout-button
+include ./profileIN
+include ./profileOUT
 
 mixin authentication-button(isAuthenticated)
   if isAuthenticated
@@ -11,6 +13,11 @@ mixin authentication-button(isAuthenticated)
   else
     +login-button
 
+mixin profile-button(isAuthenticated)
+  if isAuthenticated
+    +profileIN
+  else
+    +profileOUT
 
 block layout-content
   
@@ -20,6 +27,8 @@ block layout-content
             ul.main-nav-list
                         +main-navbar(activeRoute)
                         ul.main-nav-list
+                            li
+                            +profile-button(isAuthenticated)
                             li
                             +authentication-button(isAuthenticated)
                             li

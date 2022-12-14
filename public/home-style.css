@@ -840,3 +840,133 @@ body {
     margin: 5rem;
 
   }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.next-steps .fa-link {
+    margin-right: 5px;
+}
+
+/* Fix for use only flexbox in content area */
+.next-steps .row {
+    margin-bottom: 0;
+}
+
+.next-steps .col-md-5 {
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .next-steps .col-md-5 {
+        margin-bottom: 0;
+    }
+}
+
+.spinner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.result-block-container .result-block {
+    opacity: 1;
+}
+
+.loading {
+    display: flex;
+    min-height: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.userImg {
+    border-radius: 100px;
+    display: block;
+    height: 100px;
+    margin: 0 auto;
+    width: 100px;
+}
+
+.hero .app-logo {
+    max-width: 10.5rem;
+}
+
+.next-steps .fa-link {
+    margin-right: 5px;
+}
+
+/* Fix for use only flexbox in content area */
+.next-steps .row {
+    margin-bottom: 0;
+}
+
+.next-steps .col-md-5 {
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .next-steps .col-md-5 {
+        margin-bottom: 0;
+    }
+}
+
+.spinner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.result-block-container .result-block {
+    opacity: 1;
+}
+
+
+.space {
+
+    padding: 3rem;
+
+}
+
+.vertispace{
+
+    padding: 10rem;
+}
+
+/*
+    --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
+  
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+*/
+
+.card {
+    background: white;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+    border: 3px solid black;
+    box-shadow: .5rem .5rem 0 black;
+}

@@ -35,6 +35,12 @@ app.set('view engine', 'pug');
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+var options = {
+  theme: {
+      logo: './logo.png'
+  }
+};
+
 app.use(
   auth({
     issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
@@ -136,7 +142,7 @@ app.get("/sellCar", (req, res) => {
 // > Profile
 
 app.get('/profile', requiresAuth(),(req, res) => {
-  res.render('profile',{ user: req.oidc.user});
+  res.render('profile3',{ user: req.oidc.user});
 });
 
 // > External API
@@ -210,7 +216,7 @@ app.post('/updateUser', urlencodedParser, function (req, res) {
 
 
 
-    res.render('profile', {
+    res.render('profile3', {
       user : req.oidc.user,
       extra: extra
     });

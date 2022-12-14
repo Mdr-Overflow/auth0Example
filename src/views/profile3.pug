@@ -1,0 +1,52 @@
+extends ../components/layout2
+block content
+  if user
+    div
+    .grid.grid--3-cols
+                .feature 
+                    .card           
+                        div(class="row align-items-center profile-header")
+                            div(class="col-md-2 mb-3")
+                            img(
+                                class="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
+                                src=user.picture
+                                alt="Profile"
+                            )
+                            .space
+                            div(class="col-md text-center text-md-left")
+                            p.feature-title #{user.name}
+                            p.feature-text email: #{user.email}
+                            p.feature-text nickname : #{user.nickname} 
+                .feature
+                    .card
+                        div(class="col-md text-center text-md-left")
+                            p.feature-title Add extra info. to become a bidder
+
+                            form.login(action="/updateUser" method="POST")
+                                div
+                                p.feature-text Your Email
+                                input(type='text', id='email', name='email')
+                            
+                                div
+                                p.feature-text Age 
+                                input(type='text', id='age', name='age')
+                                div
+                                p.feature-text Country
+                                input(type='text', id='country', name='country')
+                                div
+                                p.feature-text City
+                                input(type='text', id='city', name='city')
+                                div
+                                p.feature-text Zip-Code
+                                input(type='text', id='zip', name='zip')
+                                .space    
+                                <button class = "btn btn-danger btn-block">Update</button>
+                if extra 
+                    .feature
+                        .card
+                            div(class="col-md text-center text-md-left")
+                                p.feature-title new added data:
+                                P.feature-text Age : #{extra.age}
+                                P.feature-text Country : #{extra.country}
+                                P.feature-text City : #{extra.city}
+                                P.feature-text Zip-Code : #{extra.zip}

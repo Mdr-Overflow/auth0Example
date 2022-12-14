@@ -1,0 +1,8 @@
+include ./profileIN
+include ./profileOUT
+
+mixin profile-button(isAuthenticated)
+  if isAuthenticated
+    +profileIN
+  else
+    +profileOUT
