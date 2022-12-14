@@ -2,8 +2,8 @@ mixin home-content2()
     section#hero.section-hero
         .hero
             .hero-text-box
-                h1.heading-primary We have every car you need
-                p.hero-description We Provide best solution. consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam
+                h1.heading-primary We have a car to suit all your needs
+                p.hero-description We Provide the best solution. Find your desired car with pin-point precision using a pleade of filters.See reviews and comments from past buyers.
                 a.btn.btn--outtline(href='#how') Learn more &darr;
             .hero-img-box
                 img.hero-img(src='bg-image.jpg' alt='Woman enjoy eating food')
@@ -13,72 +13,72 @@ mixin home-content2()
                 .cta-text-box
                     form.cta-form(action='#')
                         div
-                        label(for='select-where') Select Make
-                        select#select-where(required='')
-                            option(value='Porsche') Porsche
-                            option(value='BMW') BMW
-                            option(value='Audi') Audi
-                            option(value='Volvo') Volvo
-                            option(value='Dacia') Dacia
-                            option(value='Altele') Altele
+                            label(for='select-where') Select Make
+                            select#select-where(required='')
+                                option(value='Porsche') Porsche
+                                option(value='BMW') BMW
+                                option(value='Audi') Audi
+                                option(value='Volvo') Volvo
+                                option(value='Dacia') Dacia
+                                option(value='Altele') Altele
                         div
-                        label(for='select-where') Select model
-                        select#select-where(disabled='')
-                            option(value='') Please choose one option:
-                            option(value='friends') Friends and family
-                            option(value='youtube') Youtube ad
-                            option(value='facebook') Facebook ad
-                            option(value='podcast') Podcast
-                            option(value='Others') Others
+                            label(for='select-where') Select model
+                            select#select-where(disabled='')
+                                option(value='') Please choose one option:
+                                option(value='friends') Friends and family
+                                option(value='youtube') Youtube ad
+                                option(value='facebook') Facebook ad
+                                option(value='podcast') Podcast
+                                option(value='Others') Others
                         div
-                        label(for='select-where') Select year
-                        select#select-where(required='')
-                            option(value='2023') 2023
-                            option(value='2022') 2022
-                            option(value='2021') 2021
-                            option(value='2020') 2020
-                            option(value='2019') 2019
-                            option(value='2018') 2018
+                            label(for='select-where') Select year
+                            select#select-where(required='')
+                                option(value='2023') 2023
+                                option(value='2022') 2022
+                                option(value='2021') 2021
+                                option(value='2020') 2020
+                                option(value='2019') 2019
+                                option(value='2018') 2018
                         div
-                        label(for='select-where') Select body style
-                        select#select-where(required='')
-                            option(value='Sedan') Sedan
-                            option(value='Coupe') Coupe
-                            option(value='Minivan') Minivan
-                            option(value='Convertible') Convertible
-                            option(value='Van') Van
-                            option(value='SUV') SUV
+                            label(for='select-where') Select body style
+                            select#select-where(required='')
+                                option(value='Sedan') Sedan
+                                option(value='Coupe') Coupe
+                                option(value='Minivan') Minivan
+                                option(value='Convertible') Convertible
+                                option(value='Van') Van
+                                option(value='SUV') SUV
                         div
-                        label(for='select-where') Select vehicle status
-                        select#select-where(required='')
-                            option(value='New') New/option&gt;
-                            option(value='Second hand') Second hand
+                            label(for='select-where') Select vehicle status
+                            select#select-where(required='')
+                                option(value='New') New
+                                option(value='Second hand') Second hand
                         div
-                        label(for='select-where') Type of auction
-                        select#select-where(required='')
-                            option(value='Dynamic') Dynamic
-                            option(value='Buy now') Buy now
-                            option(value='Blind') Blind
-                            option(value='Target') Target
+                            label(for='select-where') Type of auction
+                            select#select-where(required='')
+                                option(value='Dynamic') Dynamic
+                                option(value='Buy now') Buy now
+                                option(value='Blind') Blind
+                                option(value='Target') Target
                         button.btn.btn--form Discover more
     section.section-featured
         .container
             h2.heading-featured-in OUR SERVICES
-            h1.heading-featured What We Offers
-            p.heading-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            h1.heading-featured What We Offer
+            p.heading-text
         .grid.grid--3-cols
             .feature
                 ion-icon.feature-icon(name='today-outline')
-                p.feature-title Anytime
-                p.feature-text A small river named Duden flows by their place and supplies itwith you
+                p.feature-title 24/7 support
+                p.feature-text No matter the clock , we are here for you
             .feature
                 ion-icon.feature-icon(name='location-outline')
-                p.feature-title Lots of location
-                p.feature-text A small river named Duden flows by their place and supplies it with you
+                p.feature-title Wide-range of locations
+                p.feature-text We are available in a vast amount of places
             .feature
                 ion-icon.feature-icon(name='car-sport-outline')
                 p.feature-title Electric Cars
-                p.feature-text A small river named Duden flows by their place and supplies it with you
+                p.feature-text From the best of the best       
     section#meals.section-meals
         .container
             h2.heading-featured-in OUR CARS
@@ -93,10 +93,12 @@ mixin home-content2()
                     ul.meal-atttributes
                         li.meal-atttribute
                         ion-icon.meal-icon(name='speedometer-outline')
-                        span strong 190 hp
+                        span 
+                            strong 190 hp
                         li.meal-atttribute
                         ion-icon.meal-icon(name='battery-full-outline')
-                        span Autonomy strong 500km
+                        span Autonomy
+                            strong 500km
                         li.meal-atttribute
                         ion-icon.meal-icon(name='star-outline')
                         span
@@ -110,13 +112,16 @@ mixin home-content2()
                     ul.meal-atttributes
                         li.meal-atttribute
                         ion-icon.meal-icon(name='speedometer-outline')
-                        span strong 190 hp
+                        span 
+                            strong 190 hp
                         li.meal-atttribute
                         ion-icon.meal-icon(name='battery-full-outline')
-                        span Autonomy strong 500km
+                        span Autonomy 
+                            strong 500km
                         li.meal-atttribute
                         ion-icon.meal-icon(name='star-outline')
-                        span strong 4.9 rating (537)
+                        span   
+                            strong 4.9 rating (537)
             .meal
                 img.meal-img(src='car.jpg' alt='Japanese Gyozas')
                 .meal-content
@@ -126,13 +131,16 @@ mixin home-content2()
                     ul.meal-atttributes
                         li.meal-atttribute
                         ion-icon.meal-icon(name='speedometer-outline')
-                        span  strong 190  hp
+                        span  
+                            strong 190  hp
                         li.meal-atttribute
                         ion-icon.meal-icon(name='battery-full-outline')
-                        span Autonomy  strong 500km
+                        span Autonomy 
+                             strong 500km
                         li.meal-atttribute
                         ion-icon.meal-icon(name='star-outline')
-                        span strong 4.9 rating (537)
+                        span 
+                            strong 4.9 rating (537)
             .meal
                 img.meal-img(src='car.jpg' alt='Japanese Gyozas')
                 .meal-content
@@ -142,13 +150,16 @@ mixin home-content2()
                     ul.meal-atttributes
                         li.meal-atttribute
                         ion-icon.meal-icon(name='speedometer-outline')
-                        span strong 190 hp
+                        span 
+                            strong 190 hp
                         li.meal-atttribute
                         ion-icon.meal-icon(name='battery-full-outline')
-                        span  Autonomy  strong 500km
+                        span  Autonomy
+                              strong 500km
                         li.meal-atttribute
                         ion-icon.meal-icon(name='star-outline')
-                        span strong 4.9  rating (537)
+                        span 
+                            strong 4.9  rating (537)
             .meal
                 img.meal-img(src='car.jpg' alt='Japanese Gyozas')
                 .meal-content
@@ -158,13 +169,16 @@ mixin home-content2()
                     ul.meal-atttributes
                         li.meal-atttribute
                         ion-icon.meal-icon(name='speedometer-outline')
-                        span strong 190 hp
+                        span 
+                            strong 190 hp
                         li.meal-atttribute
                         ion-icon.meal-icon(name='battery-full-outline')
-                        span Autonomy  strong 500km
+                        span Autonomy  
+                            strong 500km
                         li.meal-atttribute
                         ion-icon.meal-icon(name='star-outline')
-                        span strong 4.9 rating (537)
+                        span 
+                            strong 4.9 rating (537)
             .meal
                 img.meal-img(src='car.jpg' alt='Japanese Gyozas')
                 .meal-content
@@ -174,13 +188,16 @@ mixin home-content2()
                     ul.meal-atttributes
                         li.meal-atttribute
                         ion-icon.meal-icon(name='speedometer-outline')
-                        span strong 190 hp
+                        span 
+                            strong 190 hp
                         li.meal-atttribute
                         ion-icon.meal-icon(name='battery-full-outline')
-                        span Autonomy strong 500km
+                        span Autonomy 
+                            strong 500km
                         li.meal-atttribute
                         ion-icon.meal-icon(name='star-outline')
-                        span strong 4.9 rating (537)
+                        span 
+                            strong 4.9 rating (537)
     section#hero.section-about.cont
         #content-text
             .container
@@ -190,24 +207,24 @@ mixin home-content2()
                 .feature.content
                     ion-icon.feature-icon.border(name='today-outline')
                     p.feature-title.content Anytime
-                    p.feature-text.content A small river named Duden flows by their place and supplies it with you
+                    p.feature-text.content Buy or sell any day of the week
                 .feature
                     ion-icon.feature-icon.border(name='location-outline')
-                    p.feature-title.content Lots of location
-                    p.feature-text.content A small river named Duden flows by their place and supplies it with you
+                    p.feature-title.content Many available locations
+                    p.feature-text.content See cars locations on map
                 .feature
                     ion-icon.feature-icon.border(name='car-sport-outline')
                     p.feature-title.content Electric Cars
-                    p.feature-text.content A small river named Duden flows by their place and supplies it with you
+                    p.feature-text.content Lots of car categories, including electric
                 .feature
                     ion-icon.feature-icon.border(name='happy-outline')
                     p.feature-title.content Enjoy The Ride
-                    p.feature-text.content A small river named Duden flows by their place and supplies it with you
+                    p.feature-text.content Whether you buy, sell, or simply browse, enjoy the ride with us!
     section#how.section-us
         .hero
             .hero-text-box
                 h1.heading-primary Choose A Perfect Car
-                p.hero-description  A small river named Duden flows by their place and supplies it  with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. On her way which roasted parts of sentences fly into your mouth. On her way she met a copy. The copy warned the Little Blind Text, that where            
+                p.hero-description  Hatchbacks, sedans, coupes, wagons, sports cars, electric cars. A wide variety of type, makes, and options await. What's your type? Find the car that suits you, today!           
                 a.btn.btn--outtline(href='#how') Search Vehicle
             .hero-img-box
                 img.hero-img(src='bg-image.jpg' alt='Woman enjoy eating food')
