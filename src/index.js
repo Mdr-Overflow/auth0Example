@@ -142,7 +142,10 @@ app.get("/sellCar", (req, res) => {
 // > Profile
 
 app.get('/profile', requiresAuth(),(req, res) => {
-  res.render('profile3',{ user: req.oidc.user});
+  
+  let ver = dbo.checkVerifyUser(req.oidc.user.email) 
+  console.log(ver)
+  res.render('profile3',{ user: req.oidc.user, isVerified: ver });
 });
 
 // > External API
@@ -205,7 +208,7 @@ app.post('/updateUser', urlencodedParser, function (req, res) {
 
   console.log(age,country,city,zip,emailActual)
 
-  dbo.updateData(age,country,city,zip,emailActual)  
+  dbo.updateDataUser(age,country,city,zip,emailActual)  
   
   
   let extra = {age: age,

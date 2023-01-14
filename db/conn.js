@@ -1,3 +1,5 @@
+const { use } = require("browser-sync");
+const e = require("express");
 const { MongoClient } = require("mongodb");
 const connectionString = process.env.ATLAS_URI;
 const mclient = new MongoClient(connectionString, {
@@ -8,7 +10,7 @@ const mclient = new MongoClient(connectionString, {
 var dbConnection;
 
 module.exports = {
-  connectToServer: function () {
+  connectToServer: function (collection) {
     mclient.connect(function (err, client) {
       if (err || !client) {
         throw err
@@ -17,7 +19,7 @@ module.exports = {
       dbConnection = client.db("db-name");
       console.log("Successfully connected to MongoDB.");
       
-      dbConnection.collection("users")
+      dbConnection.collection("collection")
       .find({}).limit(50)
       .toArray(function (err, result) {
         if (err) {
@@ -28,7 +30,37 @@ module.exports = {
       });
   })},
 
-  updateData: function (age, country, city, zip, emailActual)
+  checkVerifyUser: function (Email)
+ {
+    mclient.connect(function (err, client) {
+      if (err || !client) {
+        throw err
+      }
+
+
+
+      dbConnection = client.db("db-name");
+      console.log("Successfully connected to MongoDB.");
+      
+      const query = { email: Email };
+      console.log(Email)
+      let users = dbConnection.collection('users');
+
+      let found = users.find(query).toArray(function (err, result) {
+        if (err) {
+         console.log(err)
+       } else {
+          console.log(result)
+        }
+      });
+
+//      console.log(result)
+ //     return found.email_verified;
+
+    
+    })},
+
+  updateDataUser: function (age, country, city, zip, emailActual)
    {
     mclient.connect(function (err, client) {
       if (err || !client) {

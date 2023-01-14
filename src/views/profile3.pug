@@ -17,30 +17,40 @@ block content
                             p.feature-title #{user.name}
                             p.feature-text email: #{user.email}
                             p.feature-text nickname : #{user.nickname} 
-                .feature
-                    .card
-                        div(class="col-md text-center text-md-left")
-                            p.feature-title Add extra info. to become a bidder
+                
+                if isVerified
+                        .feature
+                            .card
+                                div(class="col-md text-center text-md-left")
+                                    p.feature-title Add extra info. to become a bidder
 
-                            form.login(action="/updateUser" method="POST")
-                                div
-                                p.feature-text Your Email
-                                input(type='text', id='email', name='email')
-                            
-                                div
-                                p.feature-text Age 
-                                input(type='text', id='age', name='age')
-                                div
-                                p.feature-text Country
-                                input(type='text', id='country', name='country')
-                                div
-                                p.feature-text City
-                                input(type='text', id='city', name='city')
-                                div
-                                p.feature-text Zip-Code
-                                input(type='text', id='zip', name='zip')
-                                .space    
-                                <button class = "btn btn-danger btn-block">Update</button>
+                                    form.login(action="/updateUser" method="POST")
+                                        div
+                                        p.feature-text Your Email
+                                        input(type='text', id='email', name='email')
+                                    
+                                        div
+                                        p.feature-text Age 
+                                        input(type='text', id='age', name='age')
+                                        div
+                                        p.feature-text Country
+                                        input(type='text', id='country', name='country')
+                                        div
+                                        p.feature-text City
+                                        input(type='text', id='city', name='city')
+                                        div
+                                        p.feature-text Zip-Code
+                                        input(type='text', id='zip', name='zip')
+                                        .space    
+                                        <button class = "btn btn-danger btn-block">Update</button>
+                else
+                    .feature
+                        .card
+                            div(class="col-md text-center text-md-left")
+                             div
+                                 p.feature-text You must verify email before you can upgrade your account
+
+
                 if extra 
                     .feature
                         .card
