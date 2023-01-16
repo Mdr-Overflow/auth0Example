@@ -6,7 +6,7 @@ const OfferController = require('../controllers/OfferController');
 const router = express.Router();
 
 router.route('/').get(OfferController.getAllOffers)
-router.route('/:user_id').post(OfferController.createOffer);
+router.route('/:user_id/:auction_id').post(OfferController.createOffer);
 router
   .route('/:id')
   .get(OfferController.getOfferById)

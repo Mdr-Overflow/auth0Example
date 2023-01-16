@@ -6,6 +6,11 @@ const auctionModel = require('../models/auctionModel');
 
 const catchAsync = require('../utils/catchAsync');
 
+const getStuffWithPopulate = async function(id) {
+  return carModel.findById( id).populate("Seller")
+                               .populate("Interests");
+}
+
 
 exports.getAllCars = catchAsync(async (req, res, next) => {
   // Filtering
@@ -45,7 +50,7 @@ exports.getAllCars = catchAsync(async (req, res, next) => {
 exports.getCarById = catchAsync(async (req, res, next) => {
 
   
-  const carID = await carModel.findById(req.params.id);
+  const carID = await getStuffWithPopulate(req.params.id);
   if (!carID) {
     throw new Error('This car does not exist');
   }

@@ -44,9 +44,11 @@ exports.getAllOffers = catchAsync(async (req, res, next) => {
     },
   });
 });
-// needs userID
+// needs userID, auctionID
 exports.createOffer = catchAsync(async (req, res, next) => {
-    const user = await userModel.findById(req.params.id)
+    const user = await userModel.findById(req.params.user_id)
+    const auction = await userModel.findById(req.params.auction_id)
+
     const newOffer = await offerModel.create(req.body);
     
     //uncomment later
@@ -59,6 +61,12 @@ exports.createOffer = catchAsync(async (req, res, next) => {
     { new: true, useFindAndModify: false }
 );
 
+    await offerModel.findByIdAndUpdate(
+        auction.id ,
+    { $push: { offers: newOffer.id } },
+    { new: true, useFindAndModify: false }
+    );
+//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   
     res.status(201).json({
       status: 'success',
@@ -112,4 +120,3 @@ exports.deleteOffer = catchAsync(async (req, res, next) => {
       status: 'success',
     });
   });
-  

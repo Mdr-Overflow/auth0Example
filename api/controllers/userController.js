@@ -4,14 +4,12 @@ const interestModel = require('../models/interestModel');
 const auctionModel = require('../models/auctionModel');
 const catchAsync = require('../utils/catchAsync');
 const bcrypt = require('bcrypt');
+var ObjectId = require('mongoose').Types.ObjectId; 
 
-var populateQuery = { path: "Interests Cars", options: { _recursed: true } } 
-                                                        // recursed is there so it doens't loop inf.
-
-const getUserWithPopulate = function(id) {
-    return userModel.findById(id).populate(populateQuery);
-  }; // populates the interest field in user with the actual interest object not only the id to it
-
+const getUserWithPopulate =  async function(id) {
+  return userModel.findById( id ).populate("Cars")
+                               .populate("Interests");
+}
 
 exports.getAllUsers = catchAsync(async (req, res, next) => {
   // Filtering
@@ -79,8 +77,8 @@ exports.createUser = catchAsync(async (req, res, next) => {
 
 
 exports.getUserById = catchAsync(async (req, res, next) => {
-  //const userID = await userModel.findById(req.params.id);
-  const userID= await getUserWithPopulate(req.params.id);  // changes from (ids to interest obj) to (interst obj)
+  //const userid = await userModel.findById(req.params.user_id);
+  const userID= await getUserWithPopulate(req.params.user_id);  // changes from (ids to interest obj) to (interst obj)
 
   if (!userID) {
     throw new Error('This user does not exist');
