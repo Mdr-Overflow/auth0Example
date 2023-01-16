@@ -23,7 +23,7 @@ module.exports = {
             return response.body
         },
     
-        updateCarById: function ( car_id , params){
+        updateCarById: function ( car_id , params){   //same as car params
             var request = require('request');
             var options = {
             'method': 'PATCH',
@@ -92,36 +92,45 @@ module.exports = {
             if (error) throw new Error(error);
             console.log(response.body);
             });
+            return response.body
         },
 
-        createAuction: function(car_id,user_id){
+        createAuction: function(car_id,user_id,params){
           
             var request = require('request');
             var options = {
             'method': 'POST',
-            'url': '127.0.0.1:8000/api/v1/auctions/' +car_id + '/' +user_id,
+            'url': '127.0.0.1:8000/api/v1/auctions/' + car_id + "/" + user_id,
             'headers': {
-            }
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                params
+            })
+
             };
             request(options, function (error, response) {
             if (error) throw new Error(error);
             console.log(response.body);
             });
 
-
         },
-        updateAuctionById: function(id) {
+        updateAuctionById: function(id,params) {      // SAME AS CREATE AUCTION PARAMS
             var request = require('request');
             var options = {
             'method': 'PATCH',
-            'url': '127.0.0.1:8000/api/v1/auctions/' + id,
+            'url': '127.0.0.1:8000/api/v1/auctions/' +id,
             'headers': {
-            }
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+
             };
             request(options, function (error, response) {
             if (error) throw new Error(error);
             console.log(response.body);
             });
+            
         },
         deleteAuctionById: function(id) {
 
@@ -138,13 +147,12 @@ module.exports = {
         });
     },
 
-    // OFFERS
-        createOffer: function(user_id, auction_id) {
+        acceptOffer: function(offer_id,auction_id){
 
             var request = require('request');
             var options = {
             'method': 'POST',
-            'url': '127.0.0.1:8000/api/v1/offers/' +user_id +'/'+ auction_id,
+            'url': '127.0.0.1:8000/api/v1/auctions/' + offer_id +'/' +auction_id,
             'headers': {
             }
             };
@@ -152,6 +160,64 @@ module.exports = {
             if (error) throw new Error(error);
             console.log(response.body);
             });
-        }
+    },
 
-    };
+        acceptBidder: function(bidder_id,auction_id){
+
+            var request = require('request');
+            var options = {
+            'method': 'POST',
+            'url': '127.0.0.1:8000/api/v1/auctions/' + bidder_id + "/" + auction_id,
+            'headers': {
+            }
+            };
+            request(options, function (error, response) {
+            if (error) throw new Error(error);
+            console.log(response.body);
+            });
+
+
+        },
+
+        addOffer: function(offer_id,auction_id){
+
+            var request = require('request');
+            var options = {
+              'method': 'PATCH',
+              'url': '127.0.0.1:8000/api/v1/auctions/' + offer_id + '/' + auction_id,
+              'headers': {
+              }
+            };
+            request(options, function (error, response) {
+              if (error) throw new Error(error);
+              console.log(response.body);
+            });
+
+
+        },
+
+
+    // OFFERS
+        createOffer: function(user_id, auction_id, params) {  ///// DO
+
+            var request = require('request');
+            var options = {
+              'method': 'POST',
+              'url': '127.0.0.1:8000/api/v1/offers/' + user_id + "/" + auction_id,
+              'headers': {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(params)
+            
+            };
+            request(options, function (error, response) {
+              if (error) throw new Error(error);
+              console.log(response.body);
+            });
+
+    }
+
+
+
+
+}

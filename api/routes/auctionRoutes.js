@@ -6,7 +6,7 @@ const auctionController = require('../controllers/auctionController');
 const router = express.Router();
 
 router.route('/').get(auctionController.getAllAuctions)
-router.route('/:car_id').post(auctionController.createAuction);
+router.route('/:car_id/:seller_id').post(auctionController.createAuction);
 router
   .route('/:id')
   .get(auctionController.getAuctionById)
@@ -15,10 +15,11 @@ router
 
 router.route('/:car_id/:seller_id').get(auctionController.getAuctionByCarId)
 router
-    .route('/:offer_id/:auction_id')
+    .route('/offer/:offer_id/:auction_id')
     .post(auctionController.addOffer)
-    .post(auctionController.acceptOffer)
-    .post(auctionController.acceptBidder)
+    .patch(auctionController.acceptOffer)
+
+router.route('/accept/:bidder_id/:auction_id').post(auctionController.acceptBidder)
  
 
 module.exports = router;

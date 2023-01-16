@@ -66,8 +66,12 @@ exports.createAuction = catchAsync(async (req, res, next) => {
             { new: true, useFindAndModify: false }
         );
 
-    
-
+    await auctionModel.findByIdAndUpdate(
+                  newAuction.id ,
+        { $set: { seller: req.params.seller_id } },
+        { new: true, useFindAndModify: false }
+      );
+        
       
     res.status(201).json({
       status: 'success',
@@ -93,7 +97,7 @@ exports.createAuction = catchAsync(async (req, res, next) => {
 
 
 exports.getAuctionById = catchAsync(async (req, res, next) => {
-  const auctionID = await getCarWithPopulate(req.params.id);
+  const auctionID = await SuperPopulate(req.params.id);
   if (!auctionID) {
     throw new Error('This auction does not exist');
   }
@@ -140,7 +144,7 @@ exports.acceptBidder =  catchAsync(async (req, res, next) => {
 
     await auctionModel.findByIdAndUpdate(
         req.params.auction_id ,
-    { $push: { bidders: req.params.bidder_id} },
+    { $push: { bidders: AccBidder.id} },
     { new: true, useFindAndModify: false }
 );
         
@@ -153,7 +157,7 @@ exports.acceptBidder =  catchAsync(async (req, res, next) => {
     res.status(200).json({
       status: 'success',
       data: {
-        auction: updatedAuction,
+      
       },
     });
   });

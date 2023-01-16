@@ -119,7 +119,7 @@ const carSchema = new mongoose.Schema({
   },
   emission: {
     type: String,
-  },
+  }, 
   numbersDoors: {
     type: Number,
     required: [true, 'Must contains a number of doors'],

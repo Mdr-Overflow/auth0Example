@@ -2,7 +2,7 @@
 const userModel = require('../models/userModel');
 const offerModel = require('../models/offerModel');
 const catchAsync = require('../utils/catchAsync');
-
+const auctionModel = require('../models/auctionModel');
 
 const getOfferWithPopulate = function(id) {
     return offerModel.findById(id).populate("Poster");
@@ -47,7 +47,7 @@ exports.getAllOffers = catchAsync(async (req, res, next) => {
 // needs userID, auctionID
 exports.createOffer = catchAsync(async (req, res, next) => {
     const user = await userModel.findById(req.params.user_id)
-    const auction = await userModel.findById(req.params.auction_id)
+    const auction = await auctionModel.findById(req.params.auction_id)
 
     const newOffer = await offerModel.create(req.body);
     
@@ -57,16 +57,16 @@ exports.createOffer = catchAsync(async (req, res, next) => {
 
     await offerModel.findByIdAndUpdate(
         newOffer.id ,
-    { $push: { Poster: req.params.id } },
+    { $push: { Poster: user.id } },
     { new: true, useFindAndModify: false }
 );
 
-    await offerModel.findByIdAndUpdate(
+    await auctionModel.findByIdAndUpdate(
         auction.id ,
     { $push: { offers: newOffer.id } },
     { new: true, useFindAndModify: false }
     );
-//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
   
     res.status(201).json({
       status: 'success',
