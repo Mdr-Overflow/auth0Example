@@ -101,7 +101,7 @@ const dbclient = new MongoClient(connectionString, {
   
 */
 
-let dbo = require("../db/conn.js");
+//let dbo = require("../db/conn.js");
 
 
 
@@ -143,7 +143,7 @@ app.get("/sellCar", (req, res) => {
 
 app.get('/profile', requiresAuth(),(req, res) => {
   
-  let ver = dbo.checkVerifyUser(req.oidc.user.email) 
+ // let ver = dbo.checkVerifyUser(req.oidc.user.email) 
   console.log(ver)
   res.render('profile3',{ user: req.oidc.user, isVerified: ver });
 });
@@ -199,7 +199,7 @@ app.get('/extend', requiresAuth(), (req,res) =>{
 app.post('/updateUser', urlencodedParser, function (req, res) {
 
   console.log(req.body)
-
+/*
   let age = req.body.age
   let country = req.body.country;
   let city = req.body.city;
@@ -209,6 +209,8 @@ app.post('/updateUser', urlencodedParser, function (req, res) {
   console.log(age,country,city,zip,emailActual)
 
   dbo.updateDataUser(age,country,city,zip,emailActual)  
+  */
+ 
   
   
   let extra = {age: age,
