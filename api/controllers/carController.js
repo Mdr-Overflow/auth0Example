@@ -1,7 +1,11 @@
 /* eslint-disable prettier/prettier */
 
 const carModel = require('../models/carModel');
+const userModel = require('../models/userModel');
+const auctionModel = require('../models/auctionModel');
+
 const catchAsync = require('../utils/catchAsync');
+
 
 exports.getAllCars = catchAsync(async (req, res, next) => {
   // Filtering
@@ -39,6 +43,8 @@ exports.getAllCars = catchAsync(async (req, res, next) => {
 });
 
 exports.getCarById = catchAsync(async (req, res, next) => {
+
+  
   const carID = await carModel.findById(req.params.id);
   if (!carID) {
     throw new Error('This car does not exist');
@@ -50,9 +56,22 @@ exports.getCarById = catchAsync(async (req, res, next) => {
     },
   });
 });
-
+  //needs user id first
 exports.createCar = catchAsync(async (req, res, next) => {
+  const getUser = await userModel.findById(req.params.id);
   const newCar = await carModel.create(req.body);
+
+  await userModel.findByIdAndUpdate(
+    req.params.id ,
+{ $push: { Cars: newCar.id } },
+{ new: true, useFindAndModify: false }
+);
+
+await carModel.findByIdAndUpdate(
+  newCar.id ,
+{ $push: { Seller: req.params.id } },
+{ new: true, useFindAndModify: false }
+);  
 
   res.status(201).json({
     status: 'success',
@@ -77,7 +96,17 @@ exports.updateCar = catchAsync(async (req, res, next) => {
 
 exports.deleteCar = catchAsync(async (req, res, next) => {
   // eslint-disable-next-line no-unused-vars
-  const deletedCar = await carModel.findByIdAndDelete(req.params.id);
+  const deletedCar = await carModel.findByIdAndRemove(req.params.id);
+  
+  //we must cancel auction if car is deleted
+
+  
+  var query = { Car: new ObjectId(deletedCar.id) };
+
+  const remAuction = await auctionModel.findOneAndRemove(query);
+  console.log(remAuction)
+
+  deletedCar.remove()
   res.status(204).json({
     status: 'success',
   });

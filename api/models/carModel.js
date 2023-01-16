@@ -2,6 +2,12 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 
+
+
+const interestModel = require('../models/interestModel');
+
+var ObjectId = require('mongoose').Types.ObjectId; 
+
 const carSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -106,10 +112,10 @@ const carSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Must contains a country name'],
   },
-  seller: {
-    type: String,
-    required: [true, 'Must contains a seller name'],
-    enums: ['private', 'company'],
+  Seller: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+   
   },
   emission: {
     type: String,
@@ -144,16 +150,63 @@ const carSchema = new mongoose.Schema({
   validFrom: {
     type: Date,
   },
+  Interests: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Interest"                 //litera mare la inceput - numele tabelei
+    }
+  ],
   validTo: {
     type: Date,
   },
   images: [String],
-});
+  views: {
+    type: Number,
+  }
+}, { collection: 'cars' });
 
 carSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });
+
+//must delete images on delete
+
+// PRE-HOOK FOR DELETING "CASCADE-STYLE"
+carSchema.pre('remove',  async function(next) {
+  console.log('this gets printed first');
+  
+  //Interests
+  console.log(this)
+  console.log(this.id)
+  console.log(new mongoose.Types.ObjectId(this.id))
+  
+  var query = { Car: new ObjectId(this.id) };
+  
+  console.log(this.Interests.length)
+  var size = this.Interests.length
+
+  if (size != 0){
+      do {
+      const rez = await interestModel.findOneAndRemove( query )
+      console.log(rez)
+      size= size-1;
+      } while (size != 0)
+  }
+
+  // auction 
+  
+
+
+    //in CAR, USER controllers - delete image, update image , upload image -> changes the string there , la User ii ez , la Car ii mai greu
+    // stuff close to the $pull thingy , or $push
+    
+    // for image deletion on car deletion
+    // stuff like :  this.images , query = ( image_src : this.images ) , imageModel.findOneAndRemove( query )  in while loop
+
+  next();
+});
+
 
 const Car = mongoose.model('Car', carSchema);
 

@@ -57,7 +57,7 @@ module.exports = {
 //      console.log(result)
  //     return found.email_verified;
 
-    
+    //
     })},
 
   updateDataUser: function (age, country, city, zip, emailActual)

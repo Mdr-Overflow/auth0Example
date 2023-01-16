@@ -1,0 +1,17 @@
+const mongoose = require('mongoose');
+const { Date } = require('mongoose/lib');
+
+
+const auctionSchema = new mongoose.Schema({
+   
+
+    auction:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Auction"                 //litera mare la inceput - numele tabelei
+    },
+
+}, { collection: 'History' });
+
+const History = mongoose.model('History', historySchema);
+
+module.exports = History;
