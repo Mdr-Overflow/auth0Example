@@ -27,11 +27,11 @@ JSON.parse(jsonSchema)
 module.exports = {
     // move url to dotenv
             
-        getCarById: function (car_id){
+        getCarById: async function (car_id){
             var request = require('request');
             var options = {
             'method': 'GET',
-            'url': '127.0.0.1:8000/api/v1/cars/' + car_id,
+            'url': 'http://127.0.0.1:8000/api/v1/cars/' + car_id,
             'headers': {
             }
             };
@@ -44,7 +44,7 @@ module.exports = {
             return response.body
         },
         
-        getAllCars: function(params){
+        getAllCars: async function(params){
 
             
 
@@ -53,7 +53,7 @@ module.exports = {
             if (!params) {
                 var options = {
                 'method': 'GET',
-                'url': '127.0.0.1:8000/api/v1/cars',
+                'url': 'http://127.0.0.1:8000/api/v1/cars',
                 'headers': {
                 }
             };}
@@ -61,12 +61,12 @@ module.exports = {
                 
                 //buci
                 // gte|gt|lte|lt args.comparator
-                
-                var args = JSON.parse(params)
+
+                 var args = params
                 //&name=nissan&bodyType=suv&power[gte]=123&price[gte]=123&originCountry=Zimbabwe&numbersDoors=4
-                var options = {
+                var options1 = {
                     'method': 'GET',
-                    'url': '127.0.0.1:8000/api/v1/cars?fuelTypes='+ args.fuelTypes + 
+                    'url': 'http://127.0.0.1:8000/api/v1/cars?fuelTypes='+ args.fuelTypes + 
                     '&kilometers' + args.comparator  + '=' + args.kilometers +
                     '&transmissionTypes=' +args.transmissionTypes + 
                     '&sort=' +args.sort + 
@@ -83,13 +83,39 @@ module.exports = {
                     'headers': {
                     }
             }
-        }
+                 var options =   {
+                    'method': 'GET',
+                    'url': 'http://127.0.0.1:8000/api/v1/cars?fuelTypes='+ args.fuelTypes + 
+                    
+                    '&transmissionTypes=' +args.transmissionTypes + 
+                    '&sort=' +args.sort + 
+                    '&limit='+args.limit + 
+                    '&firstRegistr['  + args.comparator + ']=' +args.createdAt +
+                    
+                    '&name=' +args.name +
+                    '&bodyType=' +args.bodyType +
+                    '&power[' + args.comparator2 + ']=' +args.power +
+                    '&price[' + args.comparator3 + ']=' + args.price 
+                     
+                    ,
+                    'headers': {
+                    }
+                        
 
-            request(options, function (error, response) {
+            }
+
+        }
+            console.log(options)
+            request(options, function (error, request,) {
             if (error) throw new Error(error);
-            console.log(response.body);
+            
+            console.log(request.body)
+            /////// PIZDA GIGANTICA AICI
+            var Jres = JSON.parse(request.body)
+            console.log(Jres.data.car)
+            return Jres.data.car
             });
-            return response.body
+            
         }
         
 

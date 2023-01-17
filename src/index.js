@@ -2,6 +2,17 @@
  * Required External Modules
  */
 
+const carModel = require('../api/models/carModel');
+const userModel = require('../api/models/userModel');
+const auctionModel = require('../api/models/auctionModel');
+const interestModel = require('../api/models/interestModel');
+const offerModel = require('../api/models/offerModel');
+const mongoose = require('mongoose');
+
+
+const catchAsync = require('../api/utils/catchAsync');
+
+
 const express = require("express");
 const path = require("path");
 const { auth, requiresAuth } = require('express-openid-connect');
@@ -76,6 +87,8 @@ const { Console } = require("console");
 
 const { MongoClient } = require("mongodb");
 const { connectToServer } = require("../db/conn");
+const paramSchema = require("./logic/paramSchema");
+const { getAllCars } = require("./logic/BuyPage/apiCall");
 const connectionString = process.env.ATLAS_URI;
 
 console.log(connectionString)
@@ -84,6 +97,16 @@ const dbclient = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+mongoose
+  .connect(connectionString, {
+    useNewUrlParser: true,
+  //  useCreateIndex: true,
+  //  useFindAndModify: false,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('Db connection successfully established');
+  });
 
 
 //
@@ -212,6 +235,89 @@ app.get('/extend', requiresAuth(), (req,res) =>{
   );
   
 });                                     ///CHANGE THIS
+
+
+/// MIDDLEWARE API CALLS 
+
+
+//const paramSchema  = require('./logic/paramSchema');
+
+//catchAsync(async (req, res, next) => {
+app.get("/getter/getAllCars/:_params" , catchAsync(async (req, res, next) => {
+  const JSONModel = paramSchema.getAllCarsjsonSchema();
+
+
+  console.log(req.params._params)
+
+  const params = JSON.parse(req.params._params)
+
+  console.log(params)
+
+  JSONModel.fuelTypes = params.fuel
+  //JSONModel.kilometers =
+  //JSONModel.comparator = 'gte'
+  JSONModel.transmissionTypes = params.gearBox
+  JSONModel.sort = "price"
+  JSONModel.limit = 20  // 20 pe o pagina
+  //JSONModel.fields = []
+  //JSONModel.page =
+  JSONModel.name = params.model
+  JSONModel.bodyType = params.style  //STYLE
+  JSONModel.power = params.power
+  //JSONModel.comparator2 = 'gte'
+  JSONModel.price = params.price
+  //JSONModel.comparator3 = 'gte'
+  JSONModel.createdAt = params.year
+  //JSONModel.originCountry =
+  //JSONModel.numbersDoors =
+  
+ /// db acces
+
+   // Filtering
+   const queryObj = JSONModel
+   console.log(queryObj + "<--------------------------")
+   const excludedFields = ['page', 'sort', 'limit', 'fields'];
+   excludedFields.forEach((el) => delete queryObj[el]);
+ 
+
+
+   // Advance filtering
+   let queryStr = JSON.stringify(queryObj);
+   queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+
+   console.log(queryObj)
+   console.log(queryObj)
+   console.log(queryObj)
+   console.log(queryObj)
+
+   // eslint-disable-next-line prefer-const
+  
+
+   carModel.find({fuelTypes: queryObj.fuelTypes, transmissionTypes: queryObj.transmissionTypes ,
+                  sort: queryObj.sort, name: queryObj.name, bodyType: queryObj.bodyType,
+                  
+                  
+  
+  }, function (err, data) {
+    if (!err) {
+      console.log(data + '<============================')
+      res.render("buyCar2", {cars : data,  activeRoute :req.originalUrl, isAuction} );
+    } else {
+        throw err;
+    }
+   // res.render("buyCar2", {cars : data,  activeRoute :req.originalUrl, isAuction} )
+}).clone().catch(function(err){ console.log(err)})
+
+   
+  
+                        }));
+
+
+
+
+
+
+
 
 
 

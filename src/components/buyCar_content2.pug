@@ -1,5 +1,7 @@
 include ./car-card
 
+
+
 mixin buyCar_content2(cars)
       main
         section.section-query
@@ -7,80 +9,80 @@ mixin buyCar_content2(cars)
             .container.grid.grid--5-cols.border
               .model
                 p.text Select Model
-                select.style-box
-                  option(value='audi') Audi
-                  option(value='acura') Acura
-                  option(value='aixam') Aixam
-                  option(value='alfa romeo') Alfa romeo
-                  option(value='aston martin') Aston martin
-                  option(value='bentley') Bentley
-                  option(value='bmw') BMW
-                  option(value='bugatti') Bugatti
-                  option(value='cadillac') Cadillac
-                  option(value='chevrolet') Chevrolet
-                  option(value='citroen') Citroen
-                  option(value='cupra') Cupra
-                  option(value='dacia') Dacia
-                  option(value='daewoo') Daewoo
-                  option(value='dodge') Dodge
-                  option(value='ds automobiles') Ds Automobiles
-                  option(value='ferrari') Ferrari
-                  option(value='fiat') Fiat
-                  option(value='ford') Ford
-                  option(value='gmc') GMC
-                  option(value='honda') Honda
-                  option(value='hummer') Hummer
-                  option(value='hyundai') Hyundai
-                  option(value='infiniti') Infiniti
-                  option(value='izuzu') Izuzu
-                  option(value='iveco') Iveco
-                  option(value='jaguar') Jaguar
-                  option(value='jeep') Jeep
-                  option(value='kia') Kia
-                  option(value='land rover') Land Rover
-                  option(value='lexus') Lexus
-                  option(value='lotus') Lotus
-                  option(value='maserati') Maserati
-                  option(value='maybach') Maybach
-                  option(value='mazda') Mazda
-                  option(value='mclaren') Mclaren
-                  option(value='mercedes-benz') Mercedes-Benz
-                  option(value='mini') Mini
-                  option(value='mitsubishi') Mitsubishi
-                  option(value='nissan') Nissan
-                  option(value='opel') Opel
-                  option(value='peugeot') Peugeot
-                  option(value='pontiac') Pontiac
-                  option(value='porsche') Porsche
-                  option(value='renault') Renault
-                  option(value='rolls-royce') Rolls-royce
-                  option(value='rover') Rover
-                  option(value='saab') Saab
-                  option(value='seat') Seat
-                  option(value='skoda') Skoda
-                  option(value='smart') Smart
-                  option(value='ssangyong') Ssangyong
-                  option(value='subaru') Subaru
-                  option(value='suzuki') Suzuki
-                  option(value='tesla') Tesla
-                  option(value='toyota') Toyota
-                  option(value='volkswagen') Volkswagen
-                  option(value='volvo') Volvo
+                select.style-box#MODEL
+                  option(value='audi') audi
+                  option(value='acura') acura
+                  option(value='aixam') aixam
+                  option(value='alfa romeo') alfa romeo
+                  option(value='aston martin') aston martin
+                  option(value='bentley') bentley
+                  option(value='bmw') bmw
+                  option(value='bugatti') bugatti
+                  option(value='cadillac') cadillac
+                  option(value='chevrolet') chevrolet
+                  option(value='citroen') citroen
+                  option(value='cupra') cupra
+                  option(value='dacia') dacia
+                  option(value='daewoo') daewoo
+                  option(value='dodge') dodge
+                  option(value='ds automobiles') ds automobiles
+                  option(value='ferrari') ferrari
+                  option(value='fiat') fiat
+                  option(value='ford') ford
+                  option(value='gmc') gmc
+                  option(value='honda') honda
+                  option(value='hummer') hummer
+                  option(value='hyundai') hyundai
+                  option(value='infiniti') infiniti
+                  option(value='izuzu') izuzu
+                  option(value='iveco') iveco
+                  option(value='jaguar') jaguar
+                  option(value='jeep') jeep
+                  option(value='kia') kia
+                  option(value='land rover') land rover
+                  option(value='lexus') lexus
+                  option(value='lotus') lotus
+                  option(value='maserati') maserati
+                  option(value='maybach') maybach
+                  option(value='mazda') mazda
+                  option(value='mclaren') mclaren
+                  option(value='mercedes-benz') mercedes-benz
+                  option(value='mini') mini
+                  option(value='mitsubishi') mitsubishi
+                  option(value='nissan') nissan
+                  option(value='opel') opel
+                  option(value='peugeot') peugeot
+                  option(value='pontiac') pontiac
+                  option(value='porsche') porsche
+                  option(value='renault') renault
+                  option(value='rolls-royce') rolls-royce
+                  option(value='rover') rover
+                  option(value='saab') saab
+                  option(value='seat') seat
+                  option(value='skoda') skoda
+                  option(value='smart') smart
+                  option(value='ssangyong') ssangyong
+                  option(value='subaru') subaru
+                  option(value='suzuki') suzuki
+                  option(value='tesla') tesla
+                  option(value='toyota') toyota
+                  option(value='volkswagen') volkswagen
+                  option(value='volvo') volvo
               .year
                 p.text Select Year
-                select.style-box
-                  option(value='1990-2000') 1990-2000
-                  option(value='2000-2010') 2000-2010
+                select.style-box#YEAR
+                  option(value='1990') 1990
+                  option(value='2000') 2000
                   option(value='2010') 2010
               .price
                 p.text Select Price
-                select.style-box
-                  option(value='0-10000') 0-10000
-                  option(value='10000-15000') 10000-15000
-                  option(value='15000+') 15000+
+                select.style-box#PRICE
+                  option(value='0') 0
+                  option(value='10000') 10000
+                  option(value='15000') 15000
               .body-style
                 p.text Select Style
-                select.style-box
+                select.style-box#STYLE
                   option(value='cabrio') Cabrio
                   option(value='combi') Combi
                   option(value='compact') Compact
@@ -88,25 +90,25 @@ mixin buyCar_content2(cars)
                   option(value='suv') Suv
               .power-style
                 p.text Select Power
-                select.style-box
-                  option(value='0-100') 0-100
-                  option(value='100-200') 100-200
-                  option(value='200+') 200+
+                select.style-box#POWER
+                  option(value='0') 0
+                  option(value='100') 100
+                  option(value='200') 200
               .transmission-style
                 p.text Select Gear-Box
-                select.style-box
+                select.style-box#GEARBOX
                   option(value='automatic') automatic
                   option(value='manual') manual
               .fuel-style
-                p.text Select fuell
-                select.style-box
+                p.text Select fuel
+                select.style-box#FUEL
                   option(value='petrol') petrol
                   option(value='electric') electric
                   option(value='lpg') lpg
                   option(value='hybrid') hybrid
                   option(value='diesel') diesel
               .submit
-                button.submit-btn(type='submit') Submit
+                button.submit-btn#SUBMIT(type="Submit") Submit
         section.section-car 
             .container
                 h1.car-heading Autoturisme gasite - 33 123
