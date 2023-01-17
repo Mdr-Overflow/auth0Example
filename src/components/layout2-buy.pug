@@ -7,6 +7,9 @@ include ./logout-button
 include ./profileIN
 include ./profileOUT
 include ./signUp-button3
+include ./auctionIN
+include ./auctionOUT
+
 
 mixin authentication-button(isAuthenticated)
   if isAuthenticated
@@ -20,6 +23,12 @@ mixin profile-button(isAuthenticated)
   else
     +profileOUT
 
+mixin auction-button(isAuction,car_id)
+    if isAuction
+         +auctionIN()
+    else
+         +auctionOUT(car_id)
+
 block layout-content
   
     header(class = "header") 
@@ -28,6 +37,8 @@ block layout-content
             ul.main-nav-list
                         +main-navbar(activeRoute)
                         ul.main-nav-list
+                            li 
+                            +auction-button(isAuction,car_id)
                             li 
                             +profile-button(isAuthenticated)
                             li

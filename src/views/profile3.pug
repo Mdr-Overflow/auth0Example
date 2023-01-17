@@ -19,9 +19,25 @@ block content
                             p.feature-text nickname : #{user.nickname} 
                     .images.card
                         .grid2.grid--3-cols
-                            p.text Add images
+                            p.text Add Profile Picture
                             input#img(multiple='' type='file' name='img' accept='image/*')
                             button.save-all-btn.btn(type='submit') Save
+                .notify-cont.card
+                            h1.notify-cont-heading Notifications
+                            .data-cont
+                                .watch.card
+                                    h1.notify-cont-heading Watching
+                                    .grid2.grid--3-cols
+                                        a.car-link(href=`/auction/${car_id}`) See the car &rarr;
+                                .bid.card
+                                    h1.notify-cont-heading Bidding In
+                                    .grid2.grid--3-cols
+                                        a.car-link(href=`/auction/${car_id}`) See the car &rarr;
+                                .sels.card  
+                                     h1.notify-cont-heading Selling
+                                     .grid2.grid--3-cols
+                                        a.car-link(href=`/auction/${car_id}`) See the car &rarr;
+
                 
                 if isVerified
                         .feature

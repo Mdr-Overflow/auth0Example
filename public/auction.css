@@ -1,0 +1,61 @@
+.section-each-car {
+    padding: 9.6rem 0;
+  }
+  .flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+    margin-bottom: 4rem;
+  }
+  .car-img {
+    width: 50%;
+  }
+  .car-details {
+    border: 1px solid #555;
+    width: 350px;
+    height: 350px;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: center;
+    gap: 3.2rem;
+  }
+  .car-detail {
+    list-style: none;
+    font-size: 2rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  .car-btns {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    justify-content: space-between;
+  }
+  .del-btn,
+  .bit-btn {
+    padding: 2.4rem;
+    cursor: pointer;
+  }
+  
+  .border {
+    border: 1px solid black;
+    width: 50%;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .cont-1 {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+  }
+  .cont-2,
+  .cont-3 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+  }

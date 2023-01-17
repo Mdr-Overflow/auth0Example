@@ -107,8 +107,9 @@ const dbclient = new MongoClient(connectionString, {
 
 
 
- 
-
+ var isAuction = false
+ var car_id = "CHANGE_ME" ;
+ var car ;
 /**
  * Routes Definitions
  */
@@ -116,30 +117,43 @@ const dbclient = new MongoClient(connectionString, {
 // > Home
 
 app.get("/", (req, res) => {
-  res.render("home3", { activeRoute: req.originalUrl });
+  res.render("home3", { activeRoute: req.originalUrl , isAuction, car_id});
 });
 
 // > CarStore (buy)
 
 app.get("/buyCar", (req, res) => {
-  res.render("buyCar2", { activeRoute: req.originalUrl, cars: [{ name: "BMW" , firstRegistr: "123", kilometers:"12", fuelTypes:"BENZINA", originCountry : "Brazilia", price: "1222"    }, 
-  { name: "DFSDF" , firstRegistr: "1233", kilometers:"1223", fuelTypes:"DDD", originCountry : "SDF", price: "1231231"    }                             ] });
+
+  
+  res.render("buyCar2", { activeRoute: req.originalUrl, cars: [{id: "qwasdfgfsdhabu13hu31hu", name: "BMW" , firstRegistr: "123", kilometers:"12", fuelTypes:"BENZINA", originCountry : "Brazilia", price: "1222"    }, 
+  { id: "qwasdfgfsdhabASDA", name: "DFSDF" , firstRegistr: "1233", kilometers:"1223", fuelTypes:"DDD", originCountry : "SDF", price: "1231231"    }                            ],
+   car_id, isAuction  });
 });
 
 // > faq
 app.get("/faq", (req, res) => {
-  res.render("faq2", { activeRoute: req.originalUrl });
+  res.render("faq2", { activeRoute: req.originalUrl , isAuction, car_id});
 });
 
-// > Coming Soon
+//auction
 
+app.get("/auction/:car_id", (req, res) => {
+  isAuction = true ;
+  car = 
+  car_id = req.params.car_id
+  res.render("auction", { activeRoute: req.originalUrl , car : {id: "qwasdfgfsdhabu13hu31hu", name: "BMW" , firstRegistr: "123", kilometers:"12", fuelTypes:"BENZINA", originCountry : "Brazilia", price: "1222"    } });
+// write button middleware from car-card to get here
+
+});
+
+// soon
 app.get("/soon", (req, res) => {
   res.render("comingSoon", { });
 });
 
 // > CarStore (sell)
 app.get("/sellCar", (req, res) => {
-  res.render("sellCar2", { activeRoute: req.originalUrl });
+  res.render("sellCar2", { activeRoute: req.originalUrl, isAuction , car_id});
 });
 
 // > Profile
@@ -149,7 +163,8 @@ app.get('/profile', requiresAuth(),(req, res) => {
  // let ver = dbo.checkVerifyUser(req.oidc.user.email) 
   let ver = false;
   console.log(ver)
-  res.render('profile3',{ user: req.oidc.user, isVerified: ver });
+  let car_Id = "EXAMPLE"
+  res.render('profile3',{ user: req.oidc.user, isVerified: ver , car_Id: car_Id, isAuction});
 });
 
 // > External API
