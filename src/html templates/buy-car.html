@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="buy-car.css" />
+    <link rel="stylesheet" href="queries.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="script.js"></script>
+    <title>BidDriven</title>
+  </head>
+  <body>
+    <header class="header">
+      <img src="images/logo.png" alt="Logo Website" class="logo" />
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <div class="main-nav-list-page">
+            <li><a class="main-nav-link" href="index.html">About Us</a></li>
+            <li><a class="main-nav-link" href="buy-car.html">Buy a Car</a></li>
+            <li><a class="main-nav-link" href="sell-a-car.html">Sell a Car</a></li>
+            <li><a class="main-nav-link" href="#">FAQ</a></li>
+          </div>
+          <div class="main-nav-list-user">
+            <li><a class="main-nav-link-sing" href="#">Sing In</a></li>
+            <li><a class="main-nav-link-log" href="#">Sing Up</a></li>
+          </div>
+        </ul>
+      </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+
+    <main>
+      <section class="section-query">
+        <form action="#" class="query-box">
+          <div class="container grid grid--3-cols border">
+            <div class="model">
+              <p class="text">Select Model</p>
+              <select class="style-box">
+                <option value="audi">Audi</option>
+                <option value="acura">Acura</option>
+                <option value="aixam">Aixam</option>
+                <option value="alfa romeo">Alfa romeo</option>
+                <option value="aston martin">Aston martin</option>
+                <option value="bentley">Bentley</option>
+                <option value="bmw">BMW</option>
+                <option value="bugatti">Bugatti</option>
+                <option value="cadillac">Cadillac</option>
+                <option value="chevrolet">Chevrolet</option>
+                <option value="citroen">Citroen</option>
+                <option value="cupra">Cupra</option>
+                <option value="dacia">Dacia</option>
+                <option value="daewoo">Daewoo</option>
+                <option value="dodge">Dodge</option>
+                <option value="ds automobiles">Ds Automobiles</option>
+                <option value="ferrari">Ferrari</option>
+                <option value="fiat">Fiat</option>
+                <option value="ford">Ford</option>
+                <option value="gmc">GMC</option>
+                <option value="honda">Honda</option>
+                <option value="hummer">Hummer</option>
+                <option value="hyundai">Hyundai</option>
+                <option value="infiniti">Infiniti</option>
+                <option value="izuzu">Izuzu</option>
+                <option value="iveco">Iveco</option>
+                <option value="jaguar">Jaguar</option>
+                <option value="jeep">Jeep</option>
+                <option value="kia">Kia</option>
+                <option value="land rover">Land Rover</option>
+                <option value="lexus">Lexus</option>
+                <option value="lotus">Lotus</option>
+                <option value="maserati">Maserati</option>
+                <option value="maybach">Maybach</option>
+                <option value="mazda">Mazda</option>
+                <option value="mclaren">Mclaren</option>
+                <option value="mercedes-benz">Mercedes-Benz</option>
+                <option value="mini">Mini</option>
+                <option value="mitsubishi">Mitsubishi</option>
+                <option value="nissan">Nissan</option>
+                <option value="opel">Opel</option>
+                <option value="peugeot">Peugeot</option>
+                <option value="pontiac">Pontiac</option>
+                <option value="porsche">Porsche</option>
+                <option value="renault">Renault</option>
+                <option value="rolls-royce">Rolls-royce</option>
+                <option value="rover">Rover</option>
+                <option value="saab">Saab</option>
+                <option value="seat">Seat</option>
+                <option value="skoda">Skoda</option>
+                <option value="smart">Smart</option>
+                <option value="ssangyong">Ssangyong</option>
+                <option value="subaru">Subaru</option>
+                <option value="suzuki">Suzuki</option>
+                <option value="tesla">Tesla</option>
+                <option value="toyota">Toyota</option>
+                <option value="volkswagen">Volkswagen</option>
+                <option value="volvo">Volvo</option>
+              </select>
+            </div>
+            <div class="year">
+              <p class="text">Select Year</p>
+              <select class="style-box">
+                <option value="1990-2000">1990-2000</option>
+                <option value="2000-2010">2000-2010</option>
+                <option value="2010">2010</option>
+              </select>
+            </div>
+            <div class="price">
+              <p class="text">Select Price</p>
+              <select class="style-box">
+                <option value="0-10000">0-10000</option>
+                <option value="10000-15000">10000-15000</option>
+                <option value="15000+">15000+</option>
+              </select>
+            </div>
+            <div class="body-style">
+              <p class="text">Select Style</p>
+              <select class="style-box">
+                <option value="cabrio">Cabrio</option>
+                <option value="combi">Combi</option>
+                <option value="compact">Compact</option>
+                <option value="coupe">Coupe</option>
+                <option value="suv">Suv</option>
+              </select>
+            </div>
+            <div class="power-style">
+              <p class="text">Select Power</p>
+              <select class="style-box">
+                <option value="0-100">0-100</option>
+                <option value="100-200">100-200</option>
+                <option value="200+">200+</option>
+              </select>
+            </div>
+            <div class="transmission-style">
+              <p class="text">Select Gear-Box</p>
+              <select class="style-box">
+                <option value="automatic">automatic</option>
+                <option value="manual">manual</option>
+              </select>
+            </div>
+            <div class="fuel-style">
+              <p class="text">Select fuell</p>
+              <select class="style-box">
+                <option value="petrol">petrol</option>
+                <option value="electric">electric</option>
+                <option value="lpg">lpg</option>
+                <option value="hybrid">hybrid</option>
+                <option value="diesel">diesel</option>
+              </select>
+            </div>
+            <div class="submit">
+              <button type="submit" class="submit-btn">Submit</a>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="section-car">
+        <div class="container">
+          <h1 class="car-heading">Autoturisme gasite - 33 123</h1>
+          <div class="car-cont grid grid--2-cols margin-top">
+            <div class="car-cards">
+              <img src="images/6.jpg" alt="BMW" class="car-image" />
+              <div class="car-card-content">
+                <span class="car-card car-card-name">BMW</span>
+                <div class="data">
+                  <span class="car-card car-card-firstRegistr">2019</span>
+                  <span class="car-card car-card-kilometers"> 95 000 KM</span>
+                  <span class="car-card car-card-fuelTypes">Diesel</span>
+                </div>
+                <span class="car-card car-card-originCountry"
+                  ><ion-icon name="pin-outline" class="car-icon"></ion-icon
+                  >Spain</span
+                >
+                <p class="car-card">
+                  Pret estimat:
+                  <span class="car-card car-card-price">40 000 EUR</span>
+                </p>
+                <a href="#" class="car-link">See the car &rarr;</a>
+              </div>
+            </div>
+            <div class="car-cards">
+              <img src="images/6.jpg" alt="BMW" class="car-image" />
+              <div class="car-card-content">
+                <span class="car-card car-card-name">BMW</span>
+                <div class="data">
+                  <span class="car-card car-card-firstRegistr">2019</span>
+                  <span class="car-card car-card-kilometers"> 95 000 KM</span>
+                  <span class="car-card car-card-fuelTypes">Diesel</span>
+                </div>
+                <span class="car-card car-card-originCountry"
+                  ><ion-icon name="pin-outline" class="car-icon"></ion-icon
+                  >Spain</span
+                >
+                <p class="car-card">
+                  Pret estimat:
+                  <span class="car-card car-card-price">40 000 EUR</span>
+                </p>
+                <a href="#" class="car-link">See the car &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="#" class="footer-logo">
+            <img class="logo" src="images/logo.png" alt="BidDriven"
+          /></a>
+          <ul class="social-links">
+            <li>
+              <a href="#" class="footer-link"
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href="#" class="footer-link"
+                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href="#" class="footer-link"
+                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+          </ul>
+          <p class="copyright">Copyright &copy; 2027 by BidDriven</p>
+        </div>
+        <div class="address-col">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p class="address">
+              203 Fake St. Mountain View, San Francisco, California, USA
+            </p>
+            <p>
+              <a class="footer-link" href="tel:+01234 56789">+01234 56789</a>
+              <br />
+              <a class="footer-link" href="mailto:support@car-shop.com"
+                >support@car-shop.com</a
+              >
+            </p>
+          </address>
+        </div>
+        <nav class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">Create account</a></li>
+            <li><a class="footer-link" href="#">Sign in</a></li>
+            <li><a class="footer-link" href="#">iOS app</a></li>
+            <li><a class="footer-link" href="#">Android app</a></li>
+          </ul>
+        </nav>
+        <nav class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-link" href="index.html">About BidDriven</a>
+            </li>
+            <li>
+              <a class="footer-link" href="sell-a-car.html">For Business</a>
+            </li>
+            <li><a class="footer-link" href="#">Our partners</a></li>
+            <li><a class="footer-link" href="buy-car.html">Buy</a></li>
+          </ul>
+        </nav>
+        <nav class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-link" href="sell-a-car.html">Become Seller</a>
+            </li>
+            <li><a class="footer-link" href="#">Help center</a></li>
+            <li><a class="footer-link" href="#">Privacy & terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

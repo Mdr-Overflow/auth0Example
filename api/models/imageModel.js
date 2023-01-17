@@ -18,10 +18,23 @@ const imageSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Car'
     }  ,
-    fileId: {
+    
+    fileName: {
         type: String,
-        required: true,
-      }
+        required: true
+    },
+    filePath: {
+        type: String,
+        required: true
+    },
+    fileType: {
+        type: String,
+        required: true
+    },
+    fileSize: {
+        type: String,
+        required: true
+    }
 
 
 }, { timestamps: true });

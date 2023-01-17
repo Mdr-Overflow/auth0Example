@@ -4,128 +4,343 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="sell-car.css" />
-    <title>Sell a car</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="sell-a-car.css" />
+    <link rel="stylesheet" href="queries.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="script.js"></script>
+    <title>BidDriven</title>
   </head>
   <body>
     <header class="header">
-      <a href="home.html" class="">
-        <img class="logo" src="logo.png" alt="BidDriven logo"
-      /></a>
+      <img src="images/logo.png" alt="Logo Website" class="logo" />
       <nav class="main-nav">
         <ul class="main-nav-list">
-          <li><a class="main-nav-link" href="home.html`">About us</a></li>
-          <li><a class="main-nav-link" href="buy-a-car.html">Buy a Car</a></li>
-          <li><a class="main-nav-link" href="sell-car.html">Sell a Car</a></li>
-          <li><a class="main-nav-link" href="faq.html">Faq</a></li>
-          <li>
-            <a class="main-nav-link" href="login.html">Sing In</a>
-          </li>
-          <li>
-            <a class="main-nav-link nav-cta" href="create-account.html"
-              >Sing Up</a
-            >
-          </li>
+          <div class="main-nav-list-page">
+            <li><a class="main-nav-link" href="index.html">About Us</a></li>
+            <li><a class="main-nav-link" href="buy-car.html">Buy a Car</a></li>
+            <li>
+              <a class="main-nav-link" href="sell-a-car.html">Sell a Car</a>
+            </li>
+            <li><a class="main-nav-link" href="#">FAQ</a></li>
+          </div>
+          <div class="main-nav-list-user">
+            <li><a class="main-nav-link-sing" href="#">Sing In</a></li>
+            <li><a class="main-nav-link-log" href="#">Sing Up</a></li>
+          </div>
         </ul>
       </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
     </header>
-    <main>
-      <section class="section-cta" id="cta">
-        <div class="container">
-          <div class="cta">
-            <div class="cta-text-box">
-              <form class="cta-form" action="#">
-                <div>
-                  <label for="select-where">Select Make</label>
-                  <select id="select-where" required>
-                    <option value="Porsche">Porsche</option>
-                    <option value="BMW">BMW</option>
-                    <option value="Audi">Audi</option>
-                    <option value="Volvo">Volvo</option>
-                    <option value="Dacia">Dacia</option>
-                    <option value="Altele">Altele</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="select-where">Select model</label>
-                  <select id="select-where" disabled>
-                    <option value="">Please choose one option:</option>
-                    <option value="friends">Friends and family</option>
-                    <option value="youtube">Youtube ad</option>
-                    <option value="facebook">Facebook ad</option>
-                    <option value="podcast">Podcast</option>
-                    <option value="Others">Others</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="select-where">Select year</label>
-                  <select id="select-where" required>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                  </select>
-                </div>
 
-                <div>
-                  <label for="select-where">Select body style</label>
-                  <select id="select-where" required>
-                    <option value="Sedan">Sedan</option>
-                    <option value="Coupe">Coupe</option>
-                    <option value="Minivan">Minivan</option>
-                    <option value="Convertible">Convertible</option>
-                    <option value="Van">Van</option>
-                    <option value="SUV">SUV</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="select-where">Select vehicle status</label>
-                  <select id="select-where" required>
-                    <option value="New">New/option></option>
-                    <option value="Second hand">Second hand</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="select-where">Type of auction</label>
-                  <select id="select-where" required>
-                    <option value="Dynamic">Dynamic</option>
-                    <option value="Buy now">Buy now</option>
-                    <option value="Blind">Blind</option>
-                    <option value="Target">Target</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="select-where">Country</label>
-                  <select id="select-where" required>
-                    <option value="Romania">Romania</option>
-                    <option value="UK">UK</option>
-                    <option value="Poland">Poland</option>
-                    <option value="Uzbekistan">Uzbekistan</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="select-where">Km</label>
-                  <select id="select-where" required>
-                    <option value="0-1000">0-1000</option>
-                    <option value="1000-50000">1000-50000</option>
-                    <option value="50000-150000">50000-150000</option>
-                    <option value="150000+">150000+</option>
-                  </select>
-                </div>
-                <button class="btn btn--form">Show</button>
-              </form>
+    <main>
+      <section class="section-sell">
+        <div class="container">
+          <button class="reset-all-btn">Reset all filters</button>
+          <div class="model-type border">
+            <p class="text">Select Model <span class="req">*</span></p>
+            <select class="style-box">
+              <option value="audi">Audi</option>
+              <option value="acura">Acura</option>
+              <option value="aixam">Aixam</option>
+              <option value="alfa romeo">Alfa romeo</option>
+              <option value="aston martin">Aston martin</option>
+              <option value="bentley">Bentley</option>
+              <option value="bmw">BMW</option>
+              <option value="bugatti">Bugatti</option>
+              <option value="cadillac">Cadillac</option>
+              <option value="chevrolet">Chevrolet</option>
+              <option value="citroen">Citroen</option>
+              <option value="cupra">Cupra</option>
+              <option value="dacia">Dacia</option>
+              <option value="daewoo">Daewoo</option>
+              <option value="dodge">Dodge</option>
+              <option value="ds automobiles">Ds Automobiles</option>
+              <option value="ferrari">Ferrari</option>
+              <option value="fiat">Fiat</option>
+              <option value="ford">Ford</option>
+              <option value="gmc">GMC</option>
+              <option value="honda">Honda</option>
+              <option value="hummer">Hummer</option>
+              <option value="hyundai">Hyundai</option>
+              <option value="infiniti">Infiniti</option>
+              <option value="izuzu">Izuzu</option>
+              <option value="iveco">Iveco</option>
+              <option value="jaguar">Jaguar</option>
+              <option value="jeep">Jeep</option>
+              <option value="kia">Kia</option>
+              <option value="land rover">Land Rover</option>
+              <option value="lexus">Lexus</option>
+              <option value="lotus">Lotus</option>
+              <option value="maserati">Maserati</option>
+              <option value="maybach">Maybach</option>
+              <option value="mazda">Mazda</option>
+              <option value="mclaren">Mclaren</option>
+              <option value="mercedes-benz">Mercedes-Benz</option>
+              <option value="mini">Mini</option>
+              <option value="mitsubishi">Mitsubishi</option>
+              <option value="nissan">Nissan</option>
+              <option value="opel">Opel</option>
+              <option value="peugeot">Peugeot</option>
+              <option value="pontiac">Pontiac</option>
+              <option value="porsche">Porsche</option>
+              <option value="renault">Renault</option>
+              <option value="rolls-royce">Rolls-royce</option>
+              <option value="rover">Rover</option>
+              <option value="saab">Saab</option>
+              <option value="seat">Seat</option>
+              <option value="skoda">Skoda</option>
+              <option value="smart">Smart</option>
+              <option value="ssangyong">Ssangyong</option>
+              <option value="subaru">Subaru</option>
+              <option value="suzuki">Suzuki</option>
+              <option value="tesla">Tesla</option>
+              <option value="toyota">Toyota</option>
+              <option value="volkswagen">Volkswagen</option>
+              <option value="volvo">Volvo</option>
+            </select>
+          </div>
+          <div class="fuell type border">
+            <p class="text">Fuel Type <span class="req">*</span></p>
+            <div class="grid grid--3-cols">
+              <label class="container-check"
+                >Petrol
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >Diesel
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >Electric
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >Hybrid
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >LPG
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
             </div>
           </div>
+          <div class="transmission type border">
+            <p class="text">Transmission Type <span class="req">*</span></p>
+            <div class="grid grid--2-cols">
+              <label class="container-check"
+                >Automatic
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >Manual
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="kilometers border">
+            <p class="text">Kilometers <span class="req">*</span></p>
+            <input
+              required
+              type="number"
+              id="kilometers"
+              name="kilometers"
+              placeholder="How many kilometers..."
+            />
+          </div>
+          <div class="first registr border">
+            <p class="text">First Register <span class="req">*</span></p>
+            <input
+              required
+              type="date"
+              id="firstRegistr"
+              name="firstRegistr"
+              placeholder="First Register..."
+            />
+          </div>
+          <div class="valid to border">
+            <p class="text">Valid To</p>
+            <input
+              type="date"
+              id="validTo"
+              name="validTo"
+              placeholder="Valid To..."
+            />
+          </div>
+          <div class="valid from border">
+            <p class="text">Valid From</p>
+            <input
+              type="date"
+              id="validFrom"
+              name="validFrom"
+              placeholder="Valid From..."
+            />
+          </div>
+          <div class="power border">
+            <p class="text">Power <span class="req">*</span></p>
+            <input
+              required
+              type="number"
+              id="power"
+              name="power"
+              placeholder="Power..."
+            />
+          </div>
+          <div class="color border">
+            <p class="text">Color</p>
+            <input type="text" id="color" name="color" placeholder="Color..." />
+          </div>
+          <div class="body type border">
+            <p class="text">Body Type <span class="req">*</span></p>
+            <div class="grid grid--3-cols">
+              <label class="container-check"
+                >Cabrio
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >Combi
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >Compact
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >Coupe
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >Suv
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="origin country border">
+            <p class="text">Origin Country <span class="req">*</span></p>
+            <input
+              required
+              type="text"
+              id="originCountry"
+              name="originCountry"
+              placeholder="Origin Country..."
+            />
+          </div>
+          <div class="doors border">
+            <p class="text">Doors Numbers <span class="req">*</span></p>
+            <div class="grid grid--3-cols">
+              <label class="container-check"
+                >2
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >4
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >7
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="taxi border">
+            <p class="text">Taxi <span class="req">*</span></p>
+            <div class="grid grid--3-cols">
+              <label class="container-check"
+                >YES
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >NO
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="damage border">
+            <p class="text">Damage <span class="req">*</span></p>
+            <div class="grid grid--3-cols">
+              <label class="container-check"
+                >YES
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container-check"
+                >NO
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="price border">
+            <p class="text">Price <span class="req">*</span></p>
+            <input
+              required
+              type="number"
+              id="price"
+              name="price"
+              placeholder="Price..."
+            />
+          </div>
+          <div class="emission border">
+            <p class="text">Emission CO2</p>
+            <input
+              required
+              type="number"
+              id="emission"
+              name="emission"
+              placeholder="Emission..."
+            />
+          </div>
+          <div class="summary border">
+            <p class="text">Summary <span class="req">*</span></p>
+            <textarea
+              required
+              id="summary"
+              rows="4"
+              cols="50"
+              placeholder="Describe your car here..."
+            ></textarea>
+          </div>
+          <div class="images border">
+            <p class="text">Add images</p>
+            <input multiple type="file" id="img" name="img" accept="image/*" />
+          </div>
+          <button type="submit" class="save-all-btn">Save</button>
         </div>
       </section>
     </main>
+
     <footer class="footer">
       <div class="container grid grid--footer">
         <div class="logo-col">
           <a href="#" class="footer-logo">
-            <img class="logo" src="logo.png" alt="Omnifood logo"
+            <img class="logo" src="images/logo.png" alt="BidDriven"
           /></a>
           <ul class="social-links">
             <li>
@@ -144,16 +359,16 @@
               ></a>
             </li>
           </ul>
-          <p class="copyright">Copyright &copy; 2027 by David</p>
+          <p class="copyright">Copyright &copy; 2027 by BidDriven</p>
         </div>
         <div class="address-col">
           <p class="footer-heading">Contact us</p>
           <address class="contacts">
             <p class="address">
-              623 Harrison St., 2nd Floor, San Francisco, CA 94107
+              203 Fake St. Mountain View, San Francisco, California, USA
             </p>
             <p>
-              <a class="footer-link" href="tel:415-201-6370">415-201-6370</a>
+              <a class="footer-link" href="tel:+01234 56789">+01234 56789</a>
               <br />
               <a class="footer-link" href="mailto:support@car-shop.com"
                 >support@car-shop.com</a
@@ -164,12 +379,8 @@
         <nav class="nav-col">
           <p class="footer-heading">Account</p>
           <ul class="footer-nav">
-            <li>
-              <a class="footer-link" href="create-account.html"
-                >Create account</a
-              >
-            </li>
-            <li><a class="footer-link" href="login.html">Sign in</a></li>
+            <li><a class="footer-link" href="#">Create account</a></li>
+            <li><a class="footer-link" href="#">Sign in</a></li>
             <li><a class="footer-link" href="#">iOS app</a></li>
             <li><a class="footer-link" href="#">Android app</a></li>
           </ul>
@@ -177,16 +388,22 @@
         <nav class="nav-col">
           <p class="footer-heading">Company</p>
           <ul class="footer-nav">
-            <li><a class="footer-link" href="#">About BidDriven</a></li>
-            <li><a class="footer-link" href="#">For Business</a></li>
-            <li><a class="footer-link" href="#">Cooking partners</a></li>
-            <li><a class="footer-link" href="#">Careers</a></li>
+            <li>
+              <a class="footer-link" href="index.html">About BidDriven</a>
+            </li>
+            <li>
+              <a class="footer-link" href="sell-a-car.html">For Business</a>
+            </li>
+            <li><a class="footer-link" href="#">Our partners</a></li>
+            <li><a class="footer-link" href="buy-car.html">Buy</a></li>
           </ul>
         </nav>
         <nav class="nav-col">
           <p class="footer-heading">Resources</p>
           <ul class="footer-nav">
-            <li><a class="footer-link" href="#">Recipe directory</a></li>
+            <li>
+              <a class="footer-link" href="sell-a-car.html">Become Seller</a>
+            </li>
             <li><a class="footer-link" href="#">Help center</a></li>
             <li><a class="footer-link" href="#">Privacy & terms</a></li>
           </ul>
