@@ -1,300 +1,190 @@
-const express = require('express');
-const imageRouter = express.Router();
+
 const mongoose = require('mongoose');
-const Image = require('../models/imageModel');
+
+const GridFsStorage = require('multer-gridfs-storage').GridFsStorage;;
+
+const fs = require("fs");
+const router = require('express').Router();
+const multer = require('multer');
+const crypto = require('crypto');
+const path = require('path');
+
+var ObjectId = require('mongoose').Types.ObjectId;
 
 const userModel = require("../models/userModel")
 const carModel = require("../models/carModel")
 
 require('dotenv').config();
 
-module.exports = (upload) => {
-    const url = process.env.ATLAS_URI;
-    const connect = mongoose.createConnection(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
-    let gfs;
+const Image = require('../models/imageModel');
 
-    connect.once('open', () => {
-        // initialize stream
-        gfs = new mongoose.mongo.GridFSBucket(connect.db, {
-            bucketName: "uploads"
-        });
+const mongoURI = process.env.ATLAS_URI;
+console.log(mongoURI)
+
+const conn = mongoose.createConnection(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  //useCreateIndex: true,
+});
+
+let gfs;
+conn.once('open', () => {
+  gfs = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: 'images',
+  });
+});
+
+const storage = new GridFsStorage({
+  url: mongoURI,
+  options: { useUnifiedTopology: true },
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'images',
+        };
+        resolve(fileInfo);
+      });
     });
+  },
+});
 
-    /*
-        POST: Upload a single image/file to Image collection
-    */
-    imageRouter.route('/user/:user_id')
-        .post(upload.single('image'), (req, res, next) => {
-            console.log(req.body);
-            const  userId  = req.params.user_id
-            // check for existing images
-            Image.findOne({ caption: req.body.caption })
-                .then((image) => {
-                    console.log(image);
-                    if (image) {
-                        return res.status(200).json({
-                            success: false,
-                            message: 'Image already exists',
-                        });
-                    }
+const store = multer({
+  storage,
+  limits: { fileSize: 20000000 },  // 20 mb
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+});
 
-                    const foundUser =  userModel.findById(userId);
-                    console.log(userId)
-                    console.log(req.params.user_id)
+function checkFileType(file, cb) {
+  const filetypes = /jpeg|jpg|png|gif/;
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  const mimetype = filetypes.test(file.mimetype);
+  if (mimetype && extname) return cb(null, true);
+  cb('filetype');
+}
 
-                    if (!foundUser) return res.status(400).send('user not found');
-  
-                    let newImage = new Image({
-                        owner: userId,
-                        caption: req.body.caption,
-                        filename: req.file.filename,
-                        fileId: req.file.id,
-                    });
-
-                    userModel.findByIdAndUpdate(
-                      userId,
-                      {
-                        Profile_picture: newPic._id,
-                      },
-                      { new: true, useFindAndUpdate: false }
-                    )
-                     
-
-                    newImage.save()
-                        .then((image) => {
-
-                            res.status(200).json({
-                                success: true,
-                                image,
-                            });
-                        })
-                        .catch(err => res.status(500).json(err));
-                })
-                .catch(err => res.status(500).json(err));
-        })
-        .get((req, res, next) => {
-            Image.find({})
-                .then(images => {
-                    res.status(200).json({
-                        success: true,
-                        images,
-                    });
-                })
-                .catch(err => res.status(500).json(err));
-        });
-
-// UPLOAD FOR CAR
-
-        imageRouter.route('/user/:car_id')
-        .post(upload.single('image'), (req, res, next) => {
-            console.log(req.body);
-            const  carId  = req.params.car_id
-            // check for existing images
-            Image.findOne({ caption: req.body.caption })
-                .then((image) => {
-                    console.log(image);
-                    if (image) {
-                        return res.status(200).json({
-                            success: false,
-                            message: 'Image already exists',
-                        });
-                    }
-
-                    const foundUser =  userModel.findById(userId);
-                    console.log(carId)
-                    console.log(req.params.car_id)
-
-                    if (!foundUser) return res.status(400).send('user not found');
-  
-                    let newImage = new Image({
-                        car: carId,
-                        caption: req.body.caption,
-                        filename: req.file.filename,
-                        fileId: req.file.id,
-                    });
-
-                    carModel.findByIdAndUpdate(
-                      carId,
-                      {
-                        $push: { images: newPic.id } ,
-                      },
-                      { new: true, useFindAndUpdate: false }
-                    )
-                     
-
-                    newImage.save()
-                        .then((image) => {
-
-                            res.status(200).json({
-                                success: true,
-                                image,
-                            });
-                        })
-                        .catch(err => res.status(500).json(err));
-                })
-                .catch(err => res.status(500).json(err));
-        })
-        .get((req, res, next) => {
-            Image.find({})
-                .then(images => {
-                    res.status(200).json({
-                        success: true,
-                        images,
-                    });
-                })
-                .catch(err => res.status(500).json(err));
-        });
-
-
-
-
-
-
-
-
-
-    /*
-        GET: Delete an image from the collection
-    */
-    imageRouter.route('/delete/:id')
-        .get((req, res, next) => {
-            Image.findOne({ _id: req.params.id })
-                .then((image) => {
-                    if (image) {
-                        Image.deleteOne({ _id: req.params.id })
-                            .then(() => {
-                                return res.status(200).json({
-                                    success: true,
-                                    message: `File with ID: ${req.params.id} deleted`,
-                                });
-                            })
-                            .catch(err => { return res.status(500).json(err) });
-                    } else {
-                        res.status(200).json({
-                            success: false,
-                            message: `File with ID: ${req.params.id} not found`,
-                        });
-                    }
-                })
-                .catch(err => res.status(500).json(err));
-        });
-
-    /*
-        GET: Fetch most recently added record
-    */
-    imageRouter.route('/recent')
-        .get((req, res, next) => {
-            Image.findOne({}, {}, { sort: { '_id': -1 } })
-                .then((image) => {
-                    res.status(200).json({
-                        success: true,
-                        image,
-                    });
-                })
-                .catch(err => res.status(500).json(err));
-        });
-
-    /*
-        POST: Upload multiple files upto 3
-    */
-    imageRouter.route('/multiple')
-        .post(upload.array('file', 3), (req, res, next) => {
-            res.status(200).json({
-                success: true,
-                message: `${req.files.length} files uploaded successfully`,
-            });
-        });
-
-    /*
-        GET: Fetches all the files in the uploads collection
-    */
-    imageRouter.route('/files')
-        .get((req, res, next) => {
-            gfs.find().toArray((err, files) => {
-                if (!files || files.length === 0) {
-                    return res.status(200).json({
-                        success: false,
-                        message: 'No files available'
-                    });
-                }
-
-                files.map(file => {
-                    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png' || file.contentType === 'image/svg') {
-                        file.isImage = true;
-                    } else {
-                        file.isImage = false;
-                    }
-                });
-
-                res.status(200).json({
-                    success: true,
-                    files,
-                });
-            });
-        });
-
-    /*
-        GET: Fetches a particular file by filename
-    */
-    imageRouter.route('/file/:filename')
-        .get((req, res, next) => {
-            gfs.find({ filename: req.params.filename }).toArray((err, files) => {
-                if (!files[0] || files.length === 0) {
-                    return res.status(200).json({
-                        success: false,
-                        message: 'No files available',
-                    });
-                }
-
-                res.status(200).json({
-                    success: true,
-                    file: files[0],
-                });
-            });
-        });
-
-    /* 
-        GET: Fetches a particular image and render on browser
-    */
-    imageRouter.route('/image/:filename')
-        .get((req, res, next) => {
-            gfs.find({ filename: req.params.filename }).toArray((err, files) => {
-                if (!files[0] || files.length === 0) {
-                    return res.status(200).json({
-                        success: false,
-                        message: 'No files available',
-                    });
-                }
-
-                if (files[0].contentType === 'image/jpeg' || files[0].contentType === 'image/png' || files[0].contentType === 'image/svg+xml') {
-                    // render image to browser
-                    gfs.openDownloadStreamByName(req.params.filename).pipe(res);
-                } else {
-                    res.status(404).json({
-                        err: 'Not an image',
-                    });
-                }
-            });
-        });
-
-    /*
-        DELETE: Delete a particular file by an ID
-    */
-    imageRouter.route('/file/del/:id')
-        .post((req, res, next) => {
-            console.log(req.params.id);
-            gfs.delete(new mongoose.Types.ObjectId(req.params.id), (err, data) => {
-                if (err) {
-                    return res.status(404).json({ err: err });
-                }
-
-                res.status(200).json({
-                    success: true,
-                    message: `File with ID ${req.params.id} is deleted`,
-                });
-            });
-        });
-
-    return imageRouter;
+const uploadMiddleware = (req, res, next) => {
+  const upload = store.single('image');
+  upload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      return res.status(400).send('File too large');
+    } else if (err) {
+      if (err === 'filetype') return res.status(400).send('Image files only');
+      return res.sendStatus(500);
+    }
+    next();
+  });
 };
+
+router.post('/upload/', uploadMiddleware, async (req, res) => {
+  const { file } = req;
+  const { id } = file;
+  if (file.size > 5000000) { //5 mb
+    deleteImage(id);
+    return res.status(400).send('file may not exceed 5mb');
+  }
+  console.log('uploaded file: ', file);
+  return res.send(file.id);
+});
+
+router.post('/user/:user_id', uploadMiddleware, async (req, res) => {
+  const { file } = req;
+  const { id } = file;
+  const  userId  = req.params.user_id
+
+  if (file.size > 5000000) {
+    deleteImage(id);
+    return res.status(400).send('file may not exceed 5mb');
+  }
+
+  const foundUser = await userModel.findById(userId);
+  console.log(userId)
+  console.log(req.params.user_id)
+
+  if (!foundUser) return res.status(400).send('user not found');
+  
+
+  const newPic = await Image.create({
+    owner: userId,
+    fileId: id,
+  });
+  userModel.findByIdAndUpdate(
+    userId,
+    {
+      Profile_picture: newPic._id,
+    },
+    { new: true, useFindAndUpdate: false }
+  )
+    .then((updatedUser) => res.send(updatedUser))
+    .catch(() => res.sendStatus(500));
+});
+
+router.post('/car/:car_id', uploadMiddleware, async (req, res) => {
+  const { file } = req;
+  const { id } = file;
+  const  carId  = req.params.car_id
+
+  if (file.size > 5000000) {
+    deleteImage(id);
+    return res.status(400).send('file may not exceed 5mb');
+  }
+
+  const foundCar = await carModel.findById(carId);
+
+  if (!foundCar) return res.status(400).send('car not found');
+ 
+
+  const newPic = await Image.create({
+    car: carId,
+    fileId: id,
+  });
+  carModel.findByIdAndUpdate(
+    carId,
+    {
+      $push: { images: newPic.id } ,
+    },
+    { new: true, useFindAndUpdate: false }
+  )
+    .then((updatedUser) => res.send(updatedUser))
+    .catch(() => res.sendStatus(500));
+});
+
+
+
+const deleteImage = (id) => {
+  if (!id || id === 'undefined') return res.status(400).send('no image id');
+  const _id = new mongoose.Types.ObjectId(id);
+  gfs.delete(_id, (err) => {
+    if (err) return res.status(500).send('image deletion error');
+  });
+};
+
+// id is fileId here
+router.get('/:id', ({ params: { id } }, res) => {
+  if (!id || id === 'undefined') return res.status(400).send('no image id');
+  
+  const bucket = new mongoose.mongo.GridFSBucket(conn.db, {
+    chunkSizeBytes: 1024,
+    bucketName: 'images',
+  });
+
+  const _id = ObjectId(id)
+  gfs.find({ _id }).toArray((err, files) => {
+    console.log(files)
+    if (!files || files.length === 0)
+      return res.status(400).send('no files exist');
+      
+      const stream = fs.createWriteStream(__dirname + "/image.png");
+    bucket.openDownloadStream(_id).pipe(fs.createWriteStream('./outputFile'));  /// works TOOOOOO BIIIG DOE
+  });
+});
+
+module.exports = router;
