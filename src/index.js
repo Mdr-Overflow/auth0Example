@@ -144,7 +144,7 @@ app.get("/sellCar", (req, res) => {
 app.get('/profile', requiresAuth(),(req, res) => {
   
  // let ver = dbo.checkVerifyUser(req.oidc.user.email) 
-  
+  let ver = false;
   console.log(ver)
   res.render('profile3',{ user: req.oidc.user, isVerified: ver });
 });

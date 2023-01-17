@@ -1,0 +1,312 @@
+mixin sdsd()
+      main
+        section.seaction-hero
+          .hero
+            img.image-hero(src='images/hero-img-cover.jpg' alt='Hero-image' style='width: 100%')
+            .hero-text-box
+              h1.heading-primary
+                | We have every car 
+                br
+                |               you need!
+              p.hero-description
+                | We provide best solution for sellers and buyers 
+                br
+                |               We are a serious company and we are here to help you
+              .buttons
+                a.btn(href='#') Buy a car &darr;
+                a.btn(href='#') Sell a car &rarr;
+            form.hero-query-box(action='#')
+              .grid.grid--3-cols
+                .model
+                  p.text Select Model
+                  select.style-box
+                    option(value='audi') Audi
+                    option(value='acura') Acura
+                    option(value='aixam') Aixam
+                    option(value='alfa romeo') Alfa romeo
+                    option(value='aston martin') Aston martin
+                    option(value='bentley') Bentley
+                    option(value='bmw') BMW
+                    option(value='bugatti') Bugatti
+                    option(value='cadillac') Cadillac
+                    option(value='chevrolet') Chevrolet
+                    option(value='citroen') Citroen
+                    option(value='cupra') Cupra
+                    option(value='dacia') Dacia
+                    option(value='daewoo') Daewoo
+                    option(value='dodge') Dodge
+                    option(value='ds automobiles') Ds Automobiles
+                    option(value='ferrari') Ferrari
+                    option(value='fiat') Fiat
+                    option(value='ford') Ford
+                    option(value='gmc') GMC
+                    option(value='honda') Honda
+                    option(value='hummer') Hummer
+                    option(value='hyundai') Hyundai
+                    option(value='infiniti') Infiniti
+                    option(value='izuzu') Izuzu
+                    option(value='iveco') Iveco
+                    option(value='jaguar') Jaguar
+                    option(value='jeep') Jeep
+                    option(value='kia') Kia
+                    option(value='land rover') Land Rover
+                    option(value='lexus') Lexus
+                    option(value='lotus') Lotus
+                    option(value='maserati') Maserati
+                    option(value='maybach') Maybach
+                    option(value='mazda') Mazda
+                    option(value='mclaren') Mclaren
+                    option(value='mercedes-benz') Mercedes-Benz
+                    option(value='mini') Mini
+                    option(value='mitsubishi') Mitsubishi
+                    option(value='nissan') Nissan
+                    option(value='opel') Opel
+                    option(value='peugeot') Peugeot
+                    option(value='pontiac') Pontiac
+                    option(value='porsche') Porsche
+                    option(value='renault') Renault
+                    option(value='rolls-royce') Rolls-royce
+                    option(value='rover') Rover
+                    option(value='saab') Saab
+                    option(value='seat') Seat
+                    option(value='skoda') Skoda
+                    option(value='smart') Smart
+                    option(value='ssangyong') Ssangyong
+                    option(value='subaru') Subaru
+                    option(value='suzuki') Suzuki
+                    option(value='tesla') Tesla
+                    option(value='toyota') Toyota
+                    option(value='volkswagen') Volkswagen
+                    option(value='volvo') Volvo
+                .year
+                  p.text Select Year
+                  select.style-box
+                    option(value='1990-2000') 1990-2000
+                    option(value='2000-2010') 2000-2010
+                    option(value='2010') 2010
+                .price
+                  p.text Select Price
+                  select.style-box
+                    option(value='0-10000') 0-10000
+                    option(value='10000-15000') 10000-15000
+                    option(value='15000+') 15000+
+                .body-style
+                  p.text Select Body Style
+                  select.style-box
+                    option(value='cabrio') Cabrio
+                    option(value='combi') Combi
+                    option(value='compact') Compact
+                    option(value='coupe') Coupe
+                    option(value='suv') Suv
+                .reset
+                  button.reset-btn
+                    | Reset
+                .submit
+                  button.submit-btn
+                    | Submit
+        section.section-how
+          .container
+            span.subheading.center OUR SERVICES
+            h2.heading-secondary.center What We Offers
+          .container.grid.grid--3-cols.margin-top
+            .time
+              .header-how.flex
+                ion-icon.icon(name='time-outline')
+                p.container-text 24/7 Car Support
+              p.text
+                | A small river named Duden
+                | flows by their place and
+                | supplies it with you
+            .palce
+              .header-how.flex
+                ion-icon.icon(name='pin-outline')
+                p.container-text Lots of location
+              p.text
+                | A small river named Duden
+                | flows by their place and
+                | supplies it with you
+            .electric
+              .header-how.flex
+                ion-icon.icon(name='battery-charging-outline')
+                p.container-text Electric Cars
+              p.text
+                | A small river named Duden
+                | flows by their place and
+                | supplies it with you
+        section.section-cars
+          .container
+            span.subheading.center OUR CARS
+            h2.heading-secondary.center Choose Your Car
+          .container.grid.grid--3-cols.margin-top
+            .car
+              img.car-img(src='images/6.jpg' alt='BMW')
+              .car-content
+                p.car-title BMW
+                ul.car-attributes
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='cash-outline')
+                    span $35000
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='speedometer-outline')
+                    span 321hp
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='car-sport-outline')
+                    span Coupe
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='checkmark-done-outline')
+                    span Clean
+                a.car-link(href='#') See the car &rarr;
+            .car
+              img.car-img(src='images/4.jpg' alt='BMW')
+              .car-content
+                p.car-title BMW
+                ul.car-attributes
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='cash-outline')
+                    span $35000
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='speedometer-outline')
+                    span 321hp
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='car-sport-outline')
+                    span Coupe
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='checkmark-done-outline')
+                    span Clean
+                a.car-link(href='#') See the car &rarr;
+            .car
+              img.car-img(src='images/3.jpg' alt='BMW')
+              .car-content
+                p.car-title BMW
+                ul.car-attributes
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='cash-outline')
+                    span $35000
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='speedometer-outline')
+                    span 321hp
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='car-sport-outline')
+                    span Coupe
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='checkmark-done-outline')
+                    span Clean
+                a.car-link(href='#') See the car &rarr;
+            .car
+              img.car-img(src='images/4.jpg' alt='BMW')
+              .car-content
+                p.car-title BMW
+                ul.car-attributes
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='cash-outline')
+                    span $35000
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='speedometer-outline')
+                    span 321hp
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='car-sport-outline')
+                    span Coupe
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='checkmark-done-outline')
+                    span Clean
+                a.car-link(href='#') See the car &rarr;
+            .car
+              img.car-img(src='images/3.jpg' alt='BMW')
+              .car-content
+                p.car-title BMW
+                ul.car-attributes
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='cash-outline')
+                    span $35000
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='speedometer-outline')
+                    span 321hp
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='car-sport-outline')
+                    span Coupe
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='checkmark-done-outline')
+                    span Clean
+                a.car-link(href='#') See the car &rarr;
+            .car
+              img.car-img(src='images/6.jpg' alt='BMW')
+              .car-content
+                p.car-title BMW
+                ul.car-attributes
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='cash-outline')
+                    span $35000
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='speedometer-outline')
+                    span 321hp
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='car-sport-outline')
+                    span Coupe
+                  li.car-attribute
+                    ion-icon.icon-attribute(name='checkmark-done-outline')
+                    span Clean
+                a.car-link(href='#') See the car &rarr;
+        section.seaction-actions
+          .hero
+            img.image-actions(src='images/cover-img.jpg' alt='Hero-image' style='width: 100%')
+            .container.features.grid.grid--4-cols
+              .feature
+                .circle
+                  ion-icon.icon-feature(name='pin-outline')
+                p.title-feature Pick Car
+                p.text-feature
+                  | A small river named Duden flows
+                  | by their place and supplies it
+                  | with you
+              .feature
+                .circle
+                  ion-icon.icon-feature(name='finger-print-outline')
+                p.title-feature Private Data
+                p.text-feature
+                  | A small river named Duden flows
+                  | by their place and supplies it
+                  | with you
+              .feature
+                .circle
+                  ion-icon.icon-feature(name='car-outline')
+                p.title-feature Choose A Car
+                p.text-feature
+                  | A small river named Duden flows
+                  | by their place and supplies it
+                  | with you
+              .feature
+                .circle
+                  ion-icon.icon-feature(name='happy-outline')
+                p.title-feature Enjoy The Ride
+                p.text-feature
+                  | A small river named Duden flows
+                  | by their place and supplies it
+                  | with you
+        section.section-us
+          .container.grid.grid--2-cols
+            img.img-us(src='images/us.jpg' alt='Us')
+            .container
+              span.text-us ABOUT US
+              h2.heading-secondary-us Choose A Perfect Car
+              p.txt
+                | A small river named Duden flows by their
+                | place and supplies it with the necessary
+                | regelialia. It is a paradisematic country, in
+                | which roasted parts of sentences fly into
+                | your mouth.
+                | On her way she met a copy. The copy
+                | warned the Little Blind Text, that where it
+                | came from it would have been rewritten a
+                | thousand times and everything that was
+                | left from its origin would be the word
+                | and and the Little Blind Text should turn
+                | around and return to its own, safe
+                | country. But nothing the copy said could
+                | convince her and so it didn t take long
+                | until a few insidious Copy Writers
+                | ambushed her, made her drunk with
+                | Longe and Parole and dragged her into
+                | their agency, where they abused her for
+                | their.
+              a.car-link(href='#') See the car &rarr;
+      

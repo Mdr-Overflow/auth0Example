@@ -6,6 +6,7 @@ include ./login-button
 include ./logout-button
 include ./profileIN
 include ./profileOUT
+include ./signUp-button3
 
 mixin authentication-button(isAuthenticated)
   if isAuthenticated
@@ -32,7 +33,7 @@ block layout-content
                             li
                             +authentication-button(isAuthenticated)
                             li
-                            a.main-nav-link.nav-cta(href='/sign-up/ /') Sign Up
+                            +SignUp-button3(isAuthenticated)
     main 
       block content
       +super-footer
