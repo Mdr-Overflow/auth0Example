@@ -18,13 +18,16 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
+    "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-openid-connect": "^2.11.0",
+    "fs": "^0.0.1-security",
     "mongodb": "^4.12.1",
     "mongoose": "^6.8.3",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "multer-gridfs-storage": "^5.0.2",
     "pug": "^3.0.2",
     "request": "^2.88.2",
     "slugify": "^1.6.5"

@@ -9,12 +9,32 @@ const multerStorage = multer.memoryStorage();
 const upload = multer({ storage: multerStorage, });
 
 const imageSchema = mongoose.Schema({
-    image: { data: Buffer, contentType: String },
-    image_src: {
-        type : String
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      },
+    
+    car :{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Car'
+    }  ,
+
+    filename: {
+        required: true,
+        type: String,
+    },
+    fileId: {
+        required: true,
+        type: String,
+    },
+
+    caption: {
+        required: true,
+        type: String,
     }
+
 }, { timestamps: true });
 
 const ImageModel = mongoose.model('images', imageSchema);
-
+    // nu le mai sterg aia e
 module.exports = ImageModel

@@ -64,7 +64,7 @@ const userSchema = new mongoose.Schema({
   }
   ,
   Profile_picture:{
-    type:String,  //URL
+    type: mongoose.Schema.Types.ObjectId,  //URL
     required:[false]
   }
 

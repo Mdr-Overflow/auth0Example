@@ -159,7 +159,7 @@ const carSchema = new mongoose.Schema({
   validTo: {
     type: Date,
   },
-  images: [String],
+  images: [ {type: mongoose.Schema.Types.ObjectId} ],
   views: {
     type: Number,
   }
@@ -193,7 +193,7 @@ carSchema.pre('remove',  async function(next) {
       size= size-1;
       } while (size != 0)
   }
-
+  
   // auction 
   
 
