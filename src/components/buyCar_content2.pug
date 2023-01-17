@@ -1,8 +1,10 @@
-mixin buyCar_content2()
+include ./car-card
+
+mixin buyCar_content2(cars)
       main
         section.section-query
           form.query-box(action='#')
-            .container.grid.grid--3-cols.border
+            .container.grid.grid--5-cols.border
               .model
                 p.text Select Model
                 select.style-box
@@ -104,39 +106,38 @@ mixin buyCar_content2()
                   option(value='hybrid') hybrid
                   option(value='diesel') diesel
               .submit
-                button.submit-btn(type='submit')
-                  | Submit
-        section.section-car
-          .container
-            h1.car-heading Autoturisme gasite - 33 123
-            .car-cont.grid.grid--2-cols.margin-top
-              .car-cards
-                img.car-image(src='images/6.jpg' alt='BMW')
-                .car-card-content
-                  span.car-card.car-card-name BMW
-                  .data
-                    span.car-card.car-card-firstRegistr 2019
-                    span.car-card.car-card-kilometers  95 000 KM
-                    span.car-card.car-card-fuelTypes Diesel
-                  span.car-card.car-card-originCountry
-                    ion-icon.car-icon(name='pin-outline')
-                    | Spain
-                  p.car-card
-                    | Pret estimat:
-                    span.car-card.car-card-price 40 000 EUR
-                  a.car-link(href='#') See the car &rarr;
-              .car-cards
-                img.car-image(src='images/6.jpg' alt='BMW')
-                .car-card-content
-                  span.car-card.car-card-name BMW
-                  .data
-                    span.car-card.car-card-firstRegistr 2019
-                    span.car-card.car-card-kilometers  95 000 KM
-                    span.car-card.car-card-fuelTypes Diesel
-                  span.car-card.car-card-originCountry
-                    ion-icon.car-icon(name='pin-outline')
-                    | Spain
-                  p.car-card
-                    | Pret estimat:
-                    span.car-card.car-card-price 40 000 EUR
-                  a.car-link(href='#') See the car &rarr;
+                button.submit-btn(type='submit') Submit
+        section.section-car 
+            .container
+                h1.car-heading Autoturisme gasite - 33 123
+                .car-cont.grid.grid--7-cols.margin-top
+                            .car-cards
+                                img.car-image(src='images/6.jpg' alt='BMW')
+                                .car-card-content
+                                span.car-card.car-card-name BMW
+                                .data
+                                        span.car-card.car-card-firstRegistr 2019
+                                        span.car-card.car-card-kilometers  95 000 KM
+                                        span.car-card.car-card-fuelTypes Diesel
+                                span.car-card.car-card-originCountry
+                                    ion-icon.car-icon(name='pin-outline') 
+                                    span Spain
+                                p.car-card Pret estimat:
+                                    span.car-card.car-card-price 40 000 EUR
+                                a.car-link(href='#') See the car &rarr;
+                            .car-cards
+                                img.car-image(src='images/6.jpg' alt='BMW')
+                                .car-card-content
+                                span.car-card.car-card-name BMW
+                                .data
+                                    span.car-card.car-card-firstRegistr 2019
+                                    span.car-card.car-card-kilometers  95 000 KM
+                                    span.car-card.car-card-fuelTypes Diesel
+                                span.car-card.car-card-originCountry
+                                    ion-icon.car-icon(name='pin-outline') 
+                                    span Spain
+                                p.car-card  Pret estimat:
+                                    span.car-card.car-card-price 40 000 EUR
+                                a.car-link(href='#') See the car &rarr;
+                            each car in cars
+                             +car-card(car)

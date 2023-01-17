@@ -1,0 +1,15 @@
+mixin car-card(car)    
+            .car-cards
+                img.car-image(src='images/6.jpg' alt='BMW')
+                .car-card-content
+                    span.car-card.car-card-name #{car.name}
+                .data
+                span.car-card.car-card-firstRegistr #{car.firstRegistr}
+                span.car-card.car-card-kilometers  #{car.kilometers}
+                span.car-card.car-card-fuelTypes #{car.fuelTypes}
+                span.car-card.car-card-originCountry
+                    ion-icon.car-icon(name='pin-outline') 
+                    span #{car.originCountry}
+                p.car-card Pret estimat:
+                span.car-card.car-card-price #{car.price} EUR
+                a.car-link(href='#') See the car &rarr;

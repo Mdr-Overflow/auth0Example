@@ -1,4 +1,4 @@
-extends ../components/layout2
+extends ../components/layout2-profile
 block content
   if user
     div
@@ -17,6 +17,11 @@ block content
                             p.feature-title #{user.name}
                             p.feature-text email: #{user.email}
                             p.feature-text nickname : #{user.nickname} 
+                    .images.card
+                        .grid2.grid--3-cols
+                            p.text Add images
+                            input#img(multiple='' type='file' name='img' accept='image/*')
+                            button.save-all-btn.btn(type='submit') Save
                 
                 if isVerified
                         .feature

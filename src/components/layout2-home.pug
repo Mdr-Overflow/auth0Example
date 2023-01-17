@@ -1,0 +1,39 @@
+extends index2-home
+
+include ./super-footer
+include ./main-navbar
+include ./login-button
+include ./logout-button
+include ./profileIN
+include ./profileOUT
+include ./signUp-button3
+
+mixin authentication-button(isAuthenticated)
+  if isAuthenticated
+    +logout-button
+  else
+    +login-button
+
+mixin profile-button(isAuthenticated)
+  if isAuthenticated
+    +profileIN
+  else
+    +profileOUT
+
+block layout-content
+  
+    header(class = "header") 
+        a(href='/')
+            img.logo(src='logo.png' alt='BidDriven logo')
+            ul.main-nav-list
+                        +main-navbar(activeRoute)
+                        ul.main-nav-list
+                            li
+                            +profile-button(isAuthenticated)
+                            li
+                            +authentication-button(isAuthenticated)
+                            li
+                            +SignUp-button3(isAuthenticated)
+    main 
+      block content
+      +super-footer

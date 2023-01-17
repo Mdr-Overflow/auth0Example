@@ -52,6 +52,8 @@ app.use(
   }),
 );
 
+console.log(process.env.SESSION_SECRET)
+
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.oidc.isAuthenticated();
   res.locals.activeRoute = req.originalUrl;
@@ -120,7 +122,8 @@ app.get("/", (req, res) => {
 // > CarStore (buy)
 
 app.get("/buyCar", (req, res) => {
-  res.render("buyCar2", { activeRoute: req.originalUrl });
+  res.render("buyCar2", { activeRoute: req.originalUrl, cars: [{ name: "BMW" , firstRegistr: "123", kilometers:"12", fuelTypes:"BENZINA", originCountry : "Brazilia", price: "1222"    }, 
+  { name: "DFSDF" , firstRegistr: "1233", kilometers:"1223", fuelTypes:"DDD", originCountry : "SDF", price: "1231231"    }                             ] });
 });
 
 // > faq
