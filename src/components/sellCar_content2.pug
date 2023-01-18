@@ -6,65 +6,65 @@ mixin SellCar-content2()
                 .model-type.border
                         p.text  Select Model 
                         span.req *
-                            select.style-box
-                                option(value='audi') Audi
-                                option(value='acura') Acura
-                                option(value='aixam') Aixam
-                                option(value='alfa romeo') Alfa romeo
-                                option(value='aston martin') Aston martin
-                                option(value='bentley') Bentley
-                                option(value='bmw') BMW
-                                option(value='bugatti') Bugatti
-                                option(value='cadillac') Cadillac
-                                option(value='chevrolet') Chevrolet
-                                option(value='citroen') Citroen
-                                option(value='cupra') Cupra
-                                option(value='dacia') Dacia
-                                option(value='daewoo') Daewoo
-                                option(value='dodge') Dodge
-                                option(value='ds automobiles') Ds Automobiles
-                                option(value='ferrari') Ferrari
-                                option(value='fiat') Fiat
-                                option(value='ford') Ford
-                                option(value='gmc') GMC
-                                option(value='honda') Honda
-                                option(value='hummer') Hummer
-                                option(value='hyundai') Hyundai
-                                option(value='infiniti') Infiniti
-                                option(value='izuzu') Izuzu
-                                option(value='iveco') Iveco
-                                option(value='jaguar') Jaguar
-                                option(value='jeep') Jeep
-                                option(value='kia') Kia
-                                option(value='land rover') Land Rover
-                                option(value='lexus') Lexus
-                                option(value='lotus') Lotus
-                                option(value='maserati') Maserati
-                                option(value='maybach') Maybach
-                                option(value='mazda') Mazda
-                                option(value='mclaren') Mclaren
-                                option(value='mercedes-benz') Mercedes-Benz
-                                option(value='mini') Mini
-                                option(value='mitsubishi') Mitsubishi
-                                option(value='nissan') Nissan
-                                option(value='opel') Opel
-                                option(value='peugeot') Peugeot
-                                option(value='pontiac') Pontiac
-                                option(value='porsche') Porsche
-                                option(value='renault') Renault
-                                option(value='rolls-royce') Rolls-royce
-                                option(value='rover') Rover
-                                option(value='saab') Saab
-                                option(value='seat') Seat
-                                option(value='skoda') Skoda
-                                option(value='smart') Smart
-                                option(value='ssangyong') Ssangyong
-                                option(value='subaru') Subaru
-                                option(value='suzuki') Suzuki
-                                option(value='tesla') Tesla
-                                option(value='toyota') Toyota
-                                option(value='volkswagen') Volkswagen
-                                option(value='volvo') Volvo
+                            select.style-box#MODEL
+                                 option(value='audi') audi
+                                    option(value='acura') acura
+                                    option(value='aixam') aixam
+                                    option(value='alfa romeo') alfa romeo
+                                    option(value='aston martin') aston martin
+                                    option(value='bentley') bentley
+                                    option(value='bmw') bmw
+                                    option(value='bugatti') bugatti
+                                    option(value='cadillac') cadillac
+                                    option(value='chevrolet') chevrolet
+                                    option(value='citroen') citroen
+                                    option(value='cupra') cupra
+                                    option(value='dacia') dacia
+                                    option(value='daewoo') daewoo
+                                    option(value='dodge') dodge
+                                    option(value='ds automobiles') ds automobiles
+                                    option(value='ferrari') ferrari
+                                    option(value='fiat') fiat
+                                    option(value='ford') ford
+                                    option(value='gmc') gmc
+                                    option(value='honda') honda
+                                    option(value='hummer') hummer
+                                    option(value='hyundai') hyundai
+                                    option(value='infiniti') infiniti
+                                    option(value='izuzu') izuzu
+                                    option(value='iveco') iveco
+                                    option(value='jaguar') jaguar
+                                    option(value='jeep') jeep
+                                    option(value='kia') kia
+                                    option(value='land rover') land rover
+                                    option(value='lexus') lexus
+                                    option(value='lotus') lotus
+                                    option(value='maserati') maserati
+                                    option(value='maybach') maybach
+                                    option(value='mazda') mazda
+                                    option(value='mclaren') mclaren
+                                    option(value='mercedes-benz') mercedes-benz
+                                    option(value='mini') mini
+                                    option(value='mitsubishi') mitsubishi
+                                    option(value='nissan') nissan
+                                    option(value='opel') opel
+                                    option(value='peugeot') peugeot
+                                    option(value='pontiac') pontiac
+                                    option(value='porsche') porsche
+                                    option(value='renault') renault
+                                    option(value='rolls-royce') rolls-royce
+                                    option(value='rover') rover
+                                    option(value='saab') saab
+                                    option(value='seat') seat
+                                    option(value='skoda') skoda
+                                    option(value='smart') smart
+                                    option(value='ssangyong') ssangyong
+                                    option(value='subaru') subaru
+                                    option(value='suzuki') suzuki
+                                    option(value='tesla') tesla
+                                    option(value='toyota') toyota
+                                    option(value='volkswagen') volkswagen
+                                    option(value='volvo') volvo
                 .fuell.type.border
                         p.text Fuel Type 
                         span.req *
@@ -186,4 +186,4 @@ mixin SellCar-content2()
                 .images.border
                         p.text Add images
                         input#img(multiple='' type='file' name='img' accept='image/*')
-                        button.save-all-btn(type='submit') Save
+                        button.save-all-btn#SAVE(type='submit') Save

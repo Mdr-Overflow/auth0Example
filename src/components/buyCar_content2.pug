@@ -108,10 +108,10 @@ mixin buyCar_content2(cars)
                   option(value='hybrid') hybrid
                   option(value='diesel') diesel
               .submit
-                button.submit-btn#SUBMIT(type="Submit") Submit
+                a.submit-btn#SUBMIT(type="Submit") Submit
         section.section-car 
             .container
-                h1.car-heading Autoturisme gasite - 33 123
+                h1.car-heading Autoturisme gasite - #{cars.length}
                 .car-cont.grid.grid--7-cols.margin-top
                             .car-cards
                                 img.car-image(src='images/6.jpg' alt='BMW')

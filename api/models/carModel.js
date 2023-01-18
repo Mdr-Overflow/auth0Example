@@ -94,7 +94,7 @@ const carSchema = new mongoose.Schema({
   },
   firstRegistr: {
     type: Number,
-    required: [true, 'Must contains a register data'],
+    required: [false, 'Must contains a register data'],
   },
   power: {
     type: Number,

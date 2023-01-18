@@ -20,5 +20,5 @@ document.getElementById("SUBMIT").onclick = function () {
     obj.fuel = eFuel.options[eFuel.selectedIndex].text
     var jsonString= JSON.stringify(obj);
 
-    location.href = `/getter/getAllCars/${jsonString}`;
+    location.href = `/getAllCars/${jsonString}`;
 };

@@ -74,10 +74,8 @@ module.exports = {
     ' "damage":"X" , ' +
     ' "summary":"X" , ' +
     ' "price":"X" , ' +
-    ' "createdAt":"X" , ' +
     ' "validFrom":"X" , ' +
-    ' "validTo":"X" , ' +
-    ' "images": [ "X" ] , ' +
+    ' "validTo":"X"  ' +
     ' }'
 
 

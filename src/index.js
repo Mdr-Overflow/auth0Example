@@ -9,6 +9,7 @@ const interestModel = require('../api/models/interestModel');
 const offerModel = require('../api/models/offerModel');
 const mongoose = require('mongoose');
 
+const cors = require('cors');
 
 const catchAsync = require('../api/utils/catchAsync');
 
@@ -160,11 +161,32 @@ app.get("/faq", (req, res) => {
 
 //auction
 
-app.get("/auction/:car_id", (req, res) => {
+var ObjectId = require('mongoose').Types.ObjectId; 
+
+const getStuffWithPopulate = async function(id) {
+  return carModel.findById( new ObjectId(id)).populate("Seller")
+                               .populate("Interests");
+}
+
+app.get("/auction/get/:car_id", (req, res) => {
   isAuction = true ;
-  car = 
-  car_id = req.params.car_id
-  res.render("auction", { activeRoute: req.originalUrl , car : {id: "qwasdfgfsdhabu13hu31hu", name: "BMW" , firstRegistr: "123", kilometers:"12", fuelTypes:"BENZINA", originCountry : "Brazilia", price: "1222"    } });
+  
+  car_id2 = req.params.car_id
+  console.log(car_id2)
+  console.log(car_id2)
+  console.log(car_id2)
+  console.log(car_id2)
+  const carID =  getStuffWithPopulate( new ObjectId(car_id2))
+  if (!carID) {
+    throw new Error('This car does not exist');
+  }
+ 
+
+
+
+
+  res.render("auction", { activeRoute: req.originalUrl , car : carID , isAuction });
+  car_id = car_id2
 // write button middleware from car-card to get here
 
 });
@@ -176,8 +198,103 @@ app.get("/soon", (req, res) => {
 
 // > CarStore (sell)
 app.get("/sellCar", (req, res) => {
+
+  ///
+  
+
+
+  ///
+  /*
+  const getUser =  userModel.findById(req.params.id);
+  const newCar =  carModel.create(req.body);
+
+ userModel.findByIdAndUpdate(
+    req.params.id ,
+{ $push: { Cars: newCar.id } },
+{ new: true, useFindAndModify: false }
+);
+
+ carModel.findByIdAndUpdate(
+  newCar.id ,
+{ $push: { Seller: req.params.id } },
+{ new: true, useFindAndModify: false }
+);
+  */
+
+
   res.render("sellCar2", { activeRoute: req.originalUrl, isAuction , car_id});
 });
+
+// sell car
+app.get("/sellCar/:_params",cors(), catchAsync(async (req, res, next) => {
+
+  const JSONModel = paramSchema.getCarParam();
+
+ // Val butoane
+  console.log(req.params._params)
+
+  const params = JSON.parse(req.params._params)
+  
+  console.log(params)
+
+  JSONModel.fuelTypes = params.fuelType
+  JSONModel.kilometers = params.kilometers
+  //JSONModel.comparator = 'gte'
+  JSONModel.transmissionTypes = params.transmissionType
+  JSONModel.name = params.model
+  JSONModel.bodyType = params.BodyType  //STYLE
+  JSONModel.power = params.power
+  //JSONModel.comparator2 = 'gte'
+  JSONModel.price = params.price
+  //JSONModel.comparator3 = 'gte'
+  JSONModel.originCountry = params.originCountry
+  JSONModel.numbersDoors = params.NumbersDoors
+  JSONModel.taxi = params.Taxi
+  JSONModel.damage = params.Damage
+  JSONModel.summary = params.summary
+
+
+
+  console.log(JSONModel)
+  const queryObj = JSONModel
+
+
+  //DB
+  userId = req.oidc.user.id
+
+  
+
+
+
+  const newCar =  carModel.create({fuelTypes: queryObj.fuelTypes, transmissionTypes: queryObj.transmissionTypes ,
+                   name: queryObj.name, bodyType: queryObj.bodyType,
+                  price:  queryObj.price , power:  queryObj.power , 
+                  firstRegistr :  queryObj.createdAt , originCountry : queryObj.originCountry, 
+                  numbersDoors : queryObj.numbersDoors , taxi : queryObj.taxi, damage : queryObj.damage
+                  , summary: queryObj.summary, kilometers: queryObj.kilometers  });
+
+
+ userModel.findByIdAndUpdate(
+    userId ,
+{ $push: { Cars: newCar.id } },
+{ new: true, useFindAndModify: false }
+);
+
+ carModel.findByIdAndUpdate(
+  newCar.id ,
+{ $push: { Seller: userId } },
+{ new: true, useFindAndModify: false }
+);
+  
+
+  // render car page
+  
+  res.render("auction", { activeRoute: req.originalUrl, isAuction , car: newCar});
+
+
+}));
+
+
 
 // > Profile
 
@@ -240,13 +357,14 @@ app.get('/extend', requiresAuth(), (req,res) =>{
 /// MIDDLEWARE API CALLS 
 
 
+const { param } = require('../api/app');
 //const paramSchema  = require('./logic/paramSchema');
 
 //catchAsync(async (req, res, next) => {
-app.get("/getter/getAllCars/:_params" , catchAsync(async (req, res, next) => {
+app.get("/getAllCars/:_params" ,cors(), catchAsync(async (req, res, next) => {
   const JSONModel = paramSchema.getAllCarsjsonSchema();
 
-
+ // Val butoane
   console.log(req.params._params)
 
   const params = JSON.parse(req.params._params)
@@ -295,13 +413,15 @@ app.get("/getter/getAllCars/:_params" , catchAsync(async (req, res, next) => {
 
    carModel.find({fuelTypes: queryObj.fuelTypes, transmissionTypes: queryObj.transmissionTypes ,
                   sort: queryObj.sort, name: queryObj.name, bodyType: queryObj.bodyType,
-                  
+                  price: {"$gte": queryObj.price} , power: {"$gte": queryObj.power} , 
+                  firstRegistr : {"$gte": queryObj.createdAt}
                   
   
   }, function (err, data) {
     if (!err) {
       console.log(data + '<============================')
-      res.render("buyCar2", {cars : data,  activeRoute :req.originalUrl, isAuction} );
+     // res.redirect('/buyCar')
+     res.render("buyCar2", {cars : data,  activeRoute :req.originalUrl, isAuction} );
     } else {
         throw err;
     }

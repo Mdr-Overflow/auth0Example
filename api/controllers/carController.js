@@ -22,6 +22,9 @@ exports.getAllCars = catchAsync(async (req, res, next) => {
   let queryStr = JSON.stringify(queryObj);
   queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
+  console.log(queryStr + "OOOOOOOOOOOOOOOOOOOOOOOO")
+  console.log(queryStr + "OOOOOOOOOOOOOOOOOOOOOOOO")
+  console.log(queryStr + "OOOOOOOOOOOOOOOOOOOOOOOO")
   // eslint-disable-next-line prefer-const
   let query = carModel.find(JSON.parse(queryStr));
 
