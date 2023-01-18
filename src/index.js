@@ -168,24 +168,184 @@ const getStuffWithPopulate = async function(id) {
                                .populate("Interests");
 }
 
-app.get("/auction/get/:car_id", (req, res) => {
+app.get("/auction/:car_id", (req, res) => {
   isAuction = true ;
   
+
+  const Auction =
+    {
+        "_id": "63c5bfb5c35576a87b3e416e",
+        "bidders": [
+            {
+                "_id": "63c4ccffa372b88904e608fa",
+                "email_verified": false,
+                "role": "viewer",
+                "Interests": [],
+                "Cars": [],
+                "email": "andrei.madaras03@e-uvt.ro",
+                "password": "aiaMICA",
+                "age": 12,
+                "phone_number": 91929310239233440000,
+                "__v": 0
+            }
+        ],
+        "offers": [
+            {
+                "_id": "63c5c2ef66fd3d39598f1b23",
+                "moneySum": 112312,
+                "isAccepted": false,
+                "__v": 0,
+                "Poster": "63c4d1c47e0a0e00127a3488"
+            }
+        ],
+        "StartDate": "2012-04-21T23:25:43.000Z",
+        "EndDate": "2012-04-23T23:25:43.000Z",
+        "isOpen": false,
+        "__v": 0,
+        "car": {
+            "_id": "63c59b0beb7e5d6c7eaa442a",
+            "name": "alfa romeo",
+            "fuelTypes": "diesel",
+            "transmissionTypes": "automatic",
+            "kilometers": 230,
+            "firstRegistr": 2010,
+            "power": 260,
+            "bodyType": "Sedan",
+            "originCountry": "Italy",
+            "numbersDoors": 4,
+            "taxi": "No",
+            "damage": "No",
+            "summary": "The Alfa Romeo Brera was a sports car produced by the Italian automaker Alfa Romeo between 2005 and 2010. It was available as a coupé and a convertible. The Brera was powered by a range of gasoline engines, including a 2.2-liter four-cylinder, a 3.2-liter V6 and a 2.4-liter diesel engine. The top-of-the-line V6 engine produced 260 horsepower and could accelerate the car from 0 to 60 miles per hour in 6.5 seconds. The car had a six-speed manual transmission or optional six-speed automatic transmission. The Brera had a top speed of 250 km/h. The car had a curb weight of 1,527 kg.",
+            "price": 40,
+            "createdAt": "2023-01-16T18:27:42.040Z",
+            "Interests": [],
+            "images": [],
+            "slug": "alfa-romeo",
+            "__v": 0,
+            "Seller": "63c4d1c47e0a0e00127a3488"
+        },
+        "seller": {
+            "Interests": [],
+            "_id": "63c4d1c47e0a0e00127a3488",
+            "tenant": "dev-03zq1t4qmosoc326",
+            "connection": "MongoDB",
+            "email": "andrei.madaras01@e-uvt.ro",
+            "password": "$2b$10$FCwvO.8/dwps4X0AX.GjieyNc5YNJE5bSSR3R9JO1CeXtssebgmZm",
+            "debug": true,
+            "email_verified": false,
+            "role": "viewer",
+            "age": 13,
+            "phone_number": 9.192931023923345e+22,
+            "Cars": [
+                "63c4d263eb071b8edcf0d258",
+                "63c59737eb7e5d6c7eaa4418",
+                "63c59992eb7e5d6c7eaa4420",
+                "63c59a26eb7e5d6c7eaa4425",
+                "63c59b0beb7e5d6c7eaa442a",
+                "63c59bbaeb7e5d6c7eaa442f",
+                "63c59c8ceb7e5d6c7eaa4434",
+                "63c59d41eb7e5d6c7eaa4439",
+                "63c59ed9eb7e5d6c7eaa443e",
+                "63c5a084eb7e5d6c7eaa4443",
+                "63c5a9c7eb7e5d6c7eaa446c",
+                "63c5ad55eb7e5d6c7eaa4477",
+                "63c5addfeb7e5d6c7eaa447c",
+                "63c5adeceb7e5d6c7eaa4481",
+                "63c5ae09eb7e5d6c7eaa4486",
+                "63c5ae15eb7e5d6c7eaa448b",
+                "63c5ae22eb7e5d6c7eaa4490",
+                "63c5ae33eb7e5d6c7eaa4495",
+                "63c5ae4ceb7e5d6c7eaa449c",
+                "63c5ae56eb7e5d6c7eaa44a1",
+                "63c5ae61eb7e5d6c7eaa44a6",
+                "63c5ae6deb7e5d6c7eaa44ab",
+                "63c5ae77eb7e5d6c7eaa44b0",
+                "63c5ae82eb7e5d6c7eaa44b5",
+                "63c5ae90eb7e5d6c7eaa44ba",
+                "63c5ae9deb7e5d6c7eaa44bf",
+                "63c5aea6eb7e5d6c7eaa44c4",
+                "63c5af74eb7e5d6c7eaa44cb",
+                "63c5af7eeb7e5d6c7eaa44d0",
+                "63c5af8aeb7e5d6c7eaa44d5",
+                "63c5af94eb7e5d6c7eaa44da",
+                "63c5b061eb7e5d6c7eaa44df",
+                "63c5b0c9eb7e5d6c7eaa44e4",
+                "63c5b121eb7e5d6c7eaa44e9",
+                "63c5b1a6eb7e5d6c7eaa44ee",
+                "63c5b1eeeb7e5d6c7eaa44f3",
+                "63c5b384eb7e5d6c7eaa44f8",
+                "63c5b53deb7e5d6c7eaa44fd",
+                "63c5b606eb7e5d6c7eaa4502",
+                "63c5b6ddeb7e5d6c7eaa4507",
+                "63c5b748eb7e5d6c7eaa450c",
+                "63c5b7eceb7e5d6c7eaa4511",
+                "63c5b82deb7e5d6c7eaa4516",
+                "63c5b93beb7e5d6c7eaa451b",
+                "63c5ba46eb7e5d6c7eaa4520",
+                "63c5bbcaeb7e5d6c7eaa4525",
+                "63c5bc2aeb7e5d6c7eaa452a",
+                "63c5bc84eb7e5d6c7eaa452f",
+                "63c5bcc8eb7e5d6c7eaa4534",
+                "63c5bd6beb7e5d6c7eaa4539",
+                "63c5bdffeb7e5d6c7eaa453e",
+                "63c5be34eb7e5d6c7eaa4543",
+                "63c5beabeb7e5d6c7eaa4548",
+                "63c5bec7eb7e5d6c7eaa454d",
+                "63c5bf3beb7e5d6c7eaa4554",
+                "63c5c02aeb7e5d6c7eaa4559",
+                "63c5c11feb7e5d6c7eaa455e",
+                "63c5c1a5eb7e5d6c7eaa4563",
+                "63c5c1d4eb7e5d6c7eaa4568"
+            ]
+        }
+    }
+
+
+    const Car = {
+      "_id": "63c59b0beb7e5d6c7eaa442a",
+      "name": "audi",
+      "fuelTypes": "diesel",
+      "transmissionTypes": "automatic",
+      "kilometers": 230,
+      "firstRegistr": 2010,
+      "power": 260,
+      "bodyType": "Sedan",
+      "originCountry": "Italy",
+      "numbersDoors": 4,
+      "taxi": "No",
+      "damage": "No",
+      "summary": "The Alfa Romeo Brera was a sports car produced by the Italian automaker Alfa Romeo between 2005 and 2010. It was available as a coupé and a convertible. The Brera was powered by a range of gasoline engines, including a 2.2-liter four-cylinder, a 3.2-liter V6 and a 2.4-liter diesel engine. The top-of-the-line V6 engine produced 260 horsepower and could accelerate the car from 0 to 60 miles per hour in 6.5 seconds. The car had a six-speed manual transmission or optional six-speed automatic transmission. The Brera had a top speed of 250 km/h. The car had a curb weight of 1,527 kg.",
+      "price": 4000,
+      "createdAt": "2023-01-16T18:27:42.040Z",
+      "Interests": [],
+      "images": [],
+      "slug": "alfa-romeo",
+      "__v": 0,
+      "Seller": "63c4d1c47e0a0e00127a3488"
+  }
+
+  // :< (Nu te uita aici) 
+
+
+
+
+
+
+
+
   car_id2 = req.params.car_id
   console.log(car_id2)
   console.log(car_id2)
   console.log(car_id2)
   console.log(car_id2)
-  const carID =  getStuffWithPopulate( new ObjectId(car_id2))
-  if (!carID) {
-    throw new Error('This car does not exist');
-  }
- 
+  //const carID =  getStuffWithPopulate( new ObjectId(car_id2))
+    
 
 
 
 
-  res.render("auction", { activeRoute: req.originalUrl , car : carID , isAuction });
+
+  res.render("auction", { activeRoute: req.originalUrl , car : Car , isAuction });
   car_id = car_id2
 // write button middleware from car-card to get here
 

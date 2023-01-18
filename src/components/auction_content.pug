@@ -1,39 +1,100 @@
 mixin auction_content(car)
-    main
-      section.section-each-car.margin-top
-        .container.flex
-          img.car-img(src='../images/5.jpg' alt='')
-          .car-details
-            ul.details
-              li.car-detail #{car.name}
-              li.car-detail #{car.kilometers}
-              li.car-detail #{car.fuelTypes}
-              li.car-detail #{car.originCountry}
-        .cont-1.border 2
-        .conatiner.grid.grid--2-cols.border
-          .cont-2 2
-          .cont-3 3
-        .car-btns
-          button.del-btn Delete
-          button.bit-btn Make a bit
-      .mapouter
-        .gmap_canvas
-          iframe.gmap_iframe(frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=2048&height=400&hl=en&q=romania, bucuresti&t=&z=14&ie=UTF8&iwloc=B&output=embed')
-          a(href='https://embed-googlemap.com') embed code google maps
-        style.
-          .mapouter {
-          position: relative;
-          text-align: right;
-          width: 100%;
-          height: 400px;
-          }
-          .gmap_canvas {
-          overflow: hidden;
-          background: none !important;
-          width: 100%;
-          height: 400px;
-          }
-          .gmap_iframe {
-          width: 100% !important;
-          height: 400px !important;
-          }
+    script(type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js")
+    script. 
+        $("#btnPrint").live("click", function () {
+          var image = $("#image").html()
+          var make = $("#make").html();
+          var fuel = $("#fuel").html();
+          var transmission = $("#transmission").html();
+          var kilometers = $("#kilometers").html();
+          var year = $("#year").html();
+          var power = $("#power").html();
+          var body_type = $("#body_type").html();
+          var country = $("#country").html();
+          var price = $("#price").html();
+          var summary  = $("#summary").html();
+          var printWindow = window.open('', '', 'height=400,width=800');
+          printWindow.document.write('<html><head><title>Car Contract</title>');
+          printWindow.document.write('</head><body >');
+          printWindow.document.write('<br>');
+          printWindow.document.write(make);
+          printWindow.document.write('<br>');
+          printWindow.document.write(body_type);
+          printWindow.document.write('<br>');
+          printWindow.document.write(price);
+          printWindow.document.write('<br>');
+          printWindow.document.write(summary);
+          printWindow.document.write('</body></html>');
+          printWindow.document.close();
+          printWindow.print();
+      });
+    .container.my-5
+        .card.details-card.p-0
+            .row
+              .col-md-6.col-sm-12
+                .feature 
+                      .card
+                          .grid.grid--2-cols
+                            img.img-fluid.details-img.car-img2#image(src='/images/5.jpg' alt='')
+                            .div.car-content
+                                ul.car-attributes
+                                  li.car-attribute
+                                    ion-icon.icon-attribute(name='car-sport-outline')
+                                    span 2020
+                                  li.car-attribute
+                                    ion-icon.icon-attribute(name='speedometer-outline')
+                                    span#power 321hp
+                                  li.car-attribute
+                                    ion-icon.icon-attribute(name='car-sport-outline')
+                                    span#body_type Coupe
+                                  li.car-attribute
+                                    ion-icon.icon-attribute(name='checkmark-done-outline')
+                                    span Clean
+                          .grid.grid--3-cols
+                                  input#cart_quantity.form-control(type='number' name='cart_quantity' value='1' min='1' max='10')
+                                  button.btn.btn-primary.btn-lg(name='add_to_cart' type='submit') Bidd
+                                  button.btn.btn-primary.btn-lg(name='add_to_cart' type='submit') Add to Watchlist
+                          .col-md-6.col-sm-12.description-container.p-5
+                              .btn.btn.btn-primary#btnPrint Print
+                              .main-description
+                                p.product-category.mb-0 
+                                  h3#make #{car.name}
+                                  hr
+                                  p.product-price#price #{car.price} €‎
+                                  div(style='clear:both')
+                                  hr
+                                  p.product-title.mt-4.mb-1 About this car
+                                  p.txt2#summary #{car.summary}
+                                  hr
+                                p.product-title.mt-4.mb-1 Share this car
+                                ul.social-list
+                                  li
+                                    a(href='#')
+                                      i.fa-brands.fa-facebook
+                                  li
+                                    a(href='#')
+                                      i.fa-brands.fa-twitter
+                                  li
+                                    a(href='#')
+                                      i.fa-brands.fa-square-instagram
+    .mapouter
+              .gmap_canvas
+                iframe.gmap_iframe(frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=2048&height=400&hl=en&q=romania, bucuresti&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+                a(href='https://embed-googlemap.com') embed code google maps
+              style.
+                .mapouter {
+                position: relative;
+                text-align: right;
+                width: 100%;
+                height: 400px;
+                }
+                .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                width: 100%;
+                height: 400px;
+                }
+                .gmap_iframe {
+                width: 100% !important;
+                height: 400px !important;
+                }
