@@ -199,11 +199,10 @@ carSchema.pre('remove',  async function(next) {
 
 
     //in CAR, USER controllers - delete image, update image , upload image -> changes the string there , la User ii ez , la Car ii mai greu
-    // stuff close to the $pull thingy , or $push
+ 
     
     // for image deletion on car deletion
-    // stuff like :  this.images , query = ( image_src : this.images ) , imageModel.findOneAndRemove( query )  in while loop
-
+    
   next();
 });
 

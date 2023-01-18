@@ -33,7 +33,7 @@ module.exports = {
         
 
         body: JSON.stringify(params)
-            
+
         };
 
         request(options, function (error, response) {
@@ -61,7 +61,7 @@ module.exports = {
 
         }
         
-        // Interest you get out of user populate
+      
 
 
 

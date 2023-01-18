@@ -9,16 +9,18 @@ const interestModel = require('../api/models/interestModel');
 const offerModel = require('../api/models/offerModel');
 const mongoose = require('mongoose');
 
-//const cors = require('cors');
-
-const catchAsync = require('../api/utils/catchAsync');
-
-
 const express = require("express");
 const path = require("path");
 const { auth, requiresAuth } = require('express-openid-connect');
 const { create } = require("domain");
 var bodyParser = require('body-parser')
+
+//const cors = require('cors');
+
+const catchAsync = require('../api/utils/catchAsync');
+
+
+
  
 // create application/json parser
 var jsonParser = bodyParser.json()
@@ -78,7 +80,7 @@ app.use((req, res, next) => {
 ///DB
 
 const MONGO_PASSWORD = 'DDcytac9rIpwJ0Xp'
-///
+/// SEC RISK
 
 //DB CONN
 
@@ -338,7 +340,7 @@ app.get("/auction/:car_id", (req, res) => {
   console.log(car_id2)
   console.log(car_id2)
   console.log(car_id2)
-  //const carID =  getStuffWithPopulate( new ObjectId(car_id2))
+ 
     
 
 
@@ -347,7 +349,7 @@ app.get("/auction/:car_id", (req, res) => {
 
   res.render("auction", { activeRoute: req.originalUrl , car : Car , isAuction });
   car_id = car_id2
-// write button middleware from car-card to get here
+
 
 });
 
@@ -363,23 +365,6 @@ app.get("/sellCar", (req, res) => {
   
 
 
-  ///
-  /*
-  const getUser =  userModel.findById(req.params.id);
-  const newCar =  carModel.create(req.body);
-
- userModel.findByIdAndUpdate(
-    req.params.id ,
-{ $push: { Cars: newCar.id } },
-{ new: true, useFindAndModify: false }
-);
-
- carModel.findByIdAndUpdate(
-  newCar.id ,
-{ $push: { Seller: req.params.id } },
-{ new: true, useFindAndModify: false }
-);
-  */
 
 
   res.render("sellCar2", { activeRoute: req.originalUrl, isAuction , car_id});
@@ -511,7 +496,7 @@ app.get('/extend', requiresAuth(), (req,res) =>{
   
   );
   
-});                                     ///CHANGE THIS
+});                                  
 
 
 /// MIDDLEWARE API CALLS 

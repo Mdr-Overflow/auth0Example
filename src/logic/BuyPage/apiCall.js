@@ -9,8 +9,7 @@ let jsonSchema = '{ "fuelTypes":"X", ' +
 '"transmissionTypes":"X" , '  + 
 '"sort":"X" , '  + 
 '"limit":"X" , '  + 
-'"fields":"X,Y" , '+                  // must be like name,filed2,field3
-'"page":"X" , '  + 
+'"fields":"X,Y" , '+                  
 '"name":"X" , '  + 
 '"bodyType":"X" , '  + 
 '"power":"X" , '  + 
@@ -59,7 +58,7 @@ module.exports = {
             };}
             else {
                 
-                //buci
+                
                 // gte|gt|lte|lt args.comparator
 
                  var args = params
@@ -110,7 +109,7 @@ module.exports = {
             if (error) throw new Error(error);
             
             console.log(request.body)
-            /////// PIZDA GIGANTICA AICI
+          
             var Jres = JSON.parse(request.body)
             console.log(Jres.data.car)
             return Jres.data.car

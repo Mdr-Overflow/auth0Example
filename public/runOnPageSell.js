@@ -10,8 +10,7 @@ document.getElementById("SAVE").onclick = function () {
     var ePrice = document.getElementById("price");
     var eEmission = document.getElementById("emission");
     var eSummary = document.getElementById("summary");
-    //get IMAGE 
-    // hard stuff
+    
 
     var eFuelType = "Petrol"
     var eTransmissionType = "Manual"
@@ -37,7 +36,7 @@ document.getElementById("SAVE").onclick = function () {
     obj.originCountry = eOriginCountry.value
     obj.price = ePrice.value
     obj.emission = eEmission.value
-    obj.summary = eSummary.value /// textarea same as the others
+    obj.summary = eSummary.value 
     
 
     obj.FuelType = eFuelType

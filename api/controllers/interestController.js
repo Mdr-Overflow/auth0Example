@@ -70,9 +70,7 @@ exports.createInterest = catchAsync(async (req, res, next) => {
     { new: true, useFindAndModify: false }
   );  
 
-//    user = await getUserWithPopulate(getUser.id);    // depinde de design , daca ii aici mai mult shit in db , daca ->
-                                                           // -> daca ii la user un query in plus la afisare
-    
+
     console.log(newInterest.id)
 
     await interestModel.findByIdAndUpdate(

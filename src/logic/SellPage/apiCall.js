@@ -198,7 +198,7 @@ module.exports = {
 
 
     // OFFERS
-        createOffer: function(user_id, auction_id, params) {  ///// DO
+        createOffer: function(user_id, auction_id, params) { 
 
             var request = require('request');
             var options = {

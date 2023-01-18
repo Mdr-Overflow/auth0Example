@@ -5,7 +5,7 @@ const connectionString = process.env.ATLAS_URI;
 const interestModel = require('../models/interestModel');
 const offerModel = require('../models/offerModel');
 const auctionModel = require('../models/auctionModel');
-//const carModel = require('../models/movieModel');
+
 var ObjectId = require('mongoose').Types.ObjectId; 
 
 
@@ -154,7 +154,7 @@ const userSchema = new mongoose.Schema({
   next();
 });
 
-// User model : C done , V ?
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

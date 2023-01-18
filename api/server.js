@@ -9,7 +9,7 @@ const BASE_URL='http://localhost:8000'
 const SESSION_SECRET='23ab6f023ecaed901df27aed3cb4c2f9161dcff55104a869db9afad9a307a40c'
 const ATLAS_URI='mongodb+srv://Mandrei:DDcytac9rIpwJ0Xp@cluster0.xuf1qrn.mongodb.net/?retryWrites=true&w=majority'
 
-//
+// SEC RISK
 
 //dotenv.config({ path: 'configAPI.env' });
 const app = require('./app');

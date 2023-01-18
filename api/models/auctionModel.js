@@ -5,32 +5,32 @@ const slugify = require('slugify');
 const auctionSchema = new mongoose.Schema({
     seller:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"                 //litera mare la inceput - numele tabelei
+        ref: "User"               
     },
 
     car:{
      type: mongoose.Schema.Types.ObjectId,
-      ref: "Car"                 //litera mare la inceput - numele tabelei
+      ref: "Car"                 
     },
 
     bidders:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"                 //litera mare la inceput - numele tabelei
+        ref: "User"                 
     }],
 
     offers:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Offer"                 //litera mare la inceput - numele tabelei
+        ref: "Offer"                 
     }],
 
     current_accepted_offer:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Offer"                 //litera mare la inceput - numele tabelei
+        ref: "Offer"                 
     },
     
     StartDate:{
         type:Date,
-        require:[true,"trebe data de inceput bulangiule, StartDate:?"]
+        require:[true,"StartDate:?"]
     },
 
     EndDate:{

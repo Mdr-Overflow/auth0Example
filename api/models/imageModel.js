@@ -18,7 +18,7 @@ const imageSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Car'
     }  ,
-    
+
     fileName: {
         type: String,
         required: true
@@ -40,5 +40,5 @@ const imageSchema = mongoose.Schema({
 }, { timestamps: true });
 
 const ImageModel = mongoose.model('images', imageSchema);
-    // nu le mai sterg aia e
+    
 module.exports = ImageModel

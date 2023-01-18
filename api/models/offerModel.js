@@ -14,7 +14,7 @@ const offerSchema = new mongoose.Schema({
   Poster:{
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
-  },   // -> means if acc is deleted offer is deleted
+  },  
   isAccepted:{
     type:Boolean,
     require:[false]
