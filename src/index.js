@@ -9,7 +9,7 @@ const interestModel = require('../api/models/interestModel');
 const offerModel = require('../api/models/offerModel');
 const mongoose = require('mongoose');
 
-const cors = require('cors');
+//const cors = require('cors');
 
 const catchAsync = require('../api/utils/catchAsync');
 
@@ -226,7 +226,7 @@ app.get("/sellCar", (req, res) => {
 });
 
 // sell car
-app.get("/sellCar/:_params",cors(), catchAsync(async (req, res, next) => {
+app.get("/sellCar/:_params", catchAsync(async (req, res, next) => {
 
   const JSONModel = paramSchema.getCarParam();
 
@@ -361,7 +361,7 @@ const { param } = require('../api/app');
 //const paramSchema  = require('./logic/paramSchema');
 
 //catchAsync(async (req, res, next) => {
-app.get("/getAllCars/:_params" ,cors(), catchAsync(async (req, res, next) => {
+app.get("/getAllCars/:_params" , catchAsync(async (req, res, next) => {
   const JSONModel = paramSchema.getAllCarsjsonSchema();
 
  // Val butoane

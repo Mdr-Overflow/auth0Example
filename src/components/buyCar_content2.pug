@@ -113,33 +113,5 @@ mixin buyCar_content2(cars)
             .container
                 h1.car-heading Autoturisme gasite - #{cars.length}
                 .car-cont.grid.grid--7-cols.margin-top
-                            .car-cards
-                                img.car-image(src='images/6.jpg' alt='BMW')
-                                .car-card-content
-                                span.car-card.car-card-name BMW
-                                .data
-                                        span.car-card.car-card-firstRegistr 2019
-                                        span.car-card.car-card-kilometers  95 000 KM
-                                        span.car-card.car-card-fuelTypes Diesel
-                                span.car-card.car-card-originCountry
-                                    ion-icon.car-icon(name='pin-outline') 
-                                    span Spain
-                                p.car-card Pret estimat:
-                                    span.car-card.car-card-price 40 000 EUR
-                                a.car-link(href='#') See the car &rarr;
-                            .car-cards
-                                img.car-image(src='images/6.jpg' alt='BMW')
-                                .car-card-content
-                                span.car-card.car-card-name BMW
-                                .data
-                                    span.car-card.car-card-firstRegistr 2019
-                                    span.car-card.car-card-kilometers  95 000 KM
-                                    span.car-card.car-card-fuelTypes Diesel
-                                span.car-card.car-card-originCountry
-                                    ion-icon.car-icon(name='pin-outline') 
-                                    span Spain
-                                p.car-card  Pret estimat:
-                                    span.car-card.car-card-price 40 000 EUR
-                                a.car-link(href='#') See the car &rarr;
                             each car in cars
                              +car-card(car)
